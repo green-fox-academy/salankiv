@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>My first form</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <form action="" method="GET">
+    
+      <div class="background">
+      
+        <div class="header">
+          <h2>Profil</h2>
+        </div>
+       
+            <div class="column left">
+                <div class="innerbox title">Személyes adatok</div>
+                
+                <div class="innerbox">
+                    <label for="name">Név*</label><br>
+                    <input type="text" id="name" name="name">
+                </div>
+
+            <div class="innerbox half">
+
+                <div class="left">
+                    <label for="year" >Születési éved</label><br>
+                    <input type="text" id="year" name="year" value="pl. 1984" size="20">
+                </div>
+
+                <div class="right">
+                    <p>Nemed</p>
+
+                    <input type="radio" id="no" name="gender">
+                    <label for="no">nő</label>
+                    
+                    <input type="radio" id="ferfi" name="gender">
+                    <label for="ferfi">férfi</label>
+                </div>
+
+            </div>
+
+                <div class="innerbox" id="special">
+                    <p>Milyen márkákat szeretsz?</p>
+                    <div class="left">
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                    </div>
+                    <div class="right">
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                    </div>
+                    <p id="hint">Többet is választhatsz!</p>
+                </div>
+            </div>
+            
+            <div class="column right">
+                <div class="innerbox title">Kapcsolat</div>
+                <div class="innerbox">Telefonszám</div>
+                <div class="innerbox">E-mail cím</div>
+                <div class="innerbox">Facebook profilod</div>
+                <div class="innerbox">Twitter profilod</div>
+                <div class="innerbox">Milyen házban laksz?</div>
+            </div>
+
+            <div class="introduction"></div>
+            
+      </div> 
+    
+    </form>
+
+  </body>
+
+</html>
