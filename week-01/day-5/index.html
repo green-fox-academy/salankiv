@@ -32,12 +32,12 @@
                 
                 <div class="innerbox">
                     
-                    <div class="innerbox half left nopadding">
+                    <div class="innerbox half left">
                         <label for="year">Születési éved</label><br>
                         <input type="text" id="year" name="year" placeholder="pl. 1984" size="20">
                     </div>
                     
-                    <div class="innerbox half right nopadding">
+                    <div class="innerbox half right">
                         <p>Nemed</p>
                         <input type="radio" id="no" name="gender">
                         <label for="no">nő</label>
@@ -99,9 +99,23 @@
             
         </div>
 
-            <div class="introduction"></div>
-            
-        </div> 
+            <div class="introduction">
+                <p>Bemutatkozás*</p>
+                <textarea type="text" id="intro" name="introduction" rows="10" cols="90" placeholder="Írj magadról pár mondatot"></textarea>
+              
+                <p>CV feltöltése</p>
+                <label for="cvfile"></label>
+                <input type="file" id="cvfile" name="cvfile"><br>
+                <br>
+                <input type="checkbox" name="tc" value="agreed" required> Elolvastam a <a href="#" target="_blank">felhasznalasi felteteleket</a> es egyetertek vele <br>
+                <br>
+                <br>
+                <input class="elfogad" type="button" onclick="submit" value="Mentés">
+                <br>
+                <br>
+                <input type="reset" value="Törlés"> 
+        
+            </div> 
     
     </form>
 

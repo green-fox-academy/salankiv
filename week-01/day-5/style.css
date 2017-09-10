@@ -1,7 +1,7 @@
 .background {
     width: 821px;
     height: 999px;
-    background-color: #dcd6cd;
+    background-color: #dbd6cb;
     box-sizing: border-box;
     font-family: sans-serif;
 }
@@ -9,7 +9,7 @@
 .header {
     width: auto;
     height: 100px;
-    background-color: #dcd6cd;
+    background-color: #dbd6cb;
     box-sizing: border-box;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -22,7 +22,7 @@
 .column {
     width: 400px;
     height: 400px;
-    background-color: #dcd6cd;
+    background-color: #dbd6cb;
     box-sizing: border-box;
 
 }
@@ -43,27 +43,32 @@
 
 .introduction {
     width: auto;
-    height: 300px;
-    background-color: red;
+    height: 350px;
+    background-color: #dbd6cb;
     box-sizing: border-box;
     clear: both;
+    padding-left: 20px;
 }
 
 .innerbox {
     width: 400px;
     height: 60px;
-    background-color: lightgrey;
-    box-sizing: border-box;
+    background-color: #dbd6cb;
+    box-sizing: border-box  ;
     display: inline-block;
     vertical-align: center;
     margin-bottom: 10px;
     padding-left: 20px;
 }
 
-.innerbox:nth-child(3),
-.innerbox:nth-child(4) {
+/* erre valamilyen megoldást kellene találni:
+ hogy ne öröklődjön a padding az innerbox classból
+
+ .left.innerbox:nth-child(3),
+.left.innerbox:nth-child(4) {
     padding: 0;
 }
+*/
 
 .innerbox p {
     margin: 0 0 10px 0;
@@ -75,7 +80,7 @@ span {
 }
 
 .half {
-    width: 190px;
+    width: 170px;
 }
 
 .title {
@@ -109,3 +114,17 @@ input[id="year"] {
     height: 30px;
     border-radius: 5px;
 }
+
+input[id="cvfile"] {
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+input[típe="submit"] {
+    font-size: 18px;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+}
+
+/* gombok formázása még hiányzik */
