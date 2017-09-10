@@ -3,6 +3,7 @@
     height: 999px;
     background-color: #dcd6cd;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .header {
@@ -23,17 +24,21 @@
     height: 400px;
     background-color: #dcd6cd;
     box-sizing: border-box;
-    display: inline-block;
+
 }
 
 .left {
-    float: left;
     margin-right: 10px;
+    float: left;
 }
 
 .right {
-    float: right;
     margin-left: 10px;
+    float: left;
+}
+
+.colcontainer {
+    display: block;
 }
 
 .introduction {
@@ -42,15 +47,31 @@
     background-color: red;
     box-sizing: border-box;
     clear: both;
-    margin-top: 440px;
 }
 
 .innerbox {
     width: 400px;
-    height: 40px;
+    height: 60px;
     background-color: lightgrey;
     box-sizing: border-box;
     display: inline-block;
+    vertical-align: center;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.innerbox:nth-child(3),
+.innerbox:nth-child(4) {
+    padding: 0;
+}
+
+.innerbox p {
+    margin: 0 0 10px 0;
+    padding-left: 20px;
+}
+
+span {
+    color: red;
 }
 
 .half {
@@ -59,9 +80,32 @@
 
 .title {
     background-color: #938c97;
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 20px;
 }
 
 #hint {
     margin-top: 120px;
-    display: block;
+    color: grey;
+}
+
+input[id="name"],
+input[id="phone"],
+input[id="email"],
+input[id="facebook"],
+input[id="twitter"],
+input[list="house"] {
+    width: 350px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+input[id="year"] {
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
 }

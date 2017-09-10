@@ -20,48 +20,48 @@
           <h2>Profil</h2>
         </div>
        
+        <div class="colcontainer">
+
             <div class="column left">
                 <div class="innerbox title">Személyes adatok</div>
                 
                 <div class="innerbox">
-                    <label for="name">Név*</label><br>
+                    <label for="name">Név</label><span> *</span><br>
                     <input type="text" id="name" name="name">
                 </div>
-
-            <div class="innerbox half">
-
-                <div class="left">
-                    <label for="year" >Születési éved</label><br>
-                    <input type="text" id="year" name="year" value="pl. 1984" size="20">
-                </div>
-
-                <div class="right">
-                    <p>Nemed</p>
-
-                    <input type="radio" id="no" name="gender">
-                    <label for="no">nő</label>
+                
+                <div class="innerbox">
                     
-                    <input type="radio" id="ferfi" name="gender">
-                    <label for="ferfi">férfi</label>
-                </div>
-
-            </div>
-
-                <div class="innerbox" id="special">
-                    <p>Milyen márkákat szeretsz?</p>
-                    <div class="left">
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                    <div class="innerbox half left nopadding">
+                        <label for="year">Születési éved</label><br>
+                        <input type="text" id="year" name="year" placeholder="pl. 1984" size="20">
                     </div>
-                    <div class="right">
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
-                        <input type="checkbox" name="brand" value="adidas">Adidas<br>
+                    
+                    <div class="innerbox half right nopadding">
+                        <p>Nemed</p>
+                        <input type="radio" id="no" name="gender">
+                        <label for="no">nő</label>
+                        <input type="radio" id="ferfi" name="gender">
+                        <label for="ferfi">férfi</label>
+                    </div>
+                    
+                </div>
+                
+                <div class="innerbox">
+                    <p>Milyen márkákat szeretsz?</p>
+                    <div class="half right">
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                    </div>
+                    <div class="half left">
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
+                        <input type="checkbox" name="brand" value="adidas"> Adidas<br>
                     </div>
                     <p id="hint">Többet is választhatsz!</p>
                 </div>
@@ -69,16 +69,39 @@
             
             <div class="column right">
                 <div class="innerbox title">Kapcsolat</div>
-                <div class="innerbox">Telefonszám</div>
-                <div class="innerbox">E-mail cím</div>
-                <div class="innerbox">Facebook profilod</div>
-                <div class="innerbox">Twitter profilod</div>
-                <div class="innerbox">Milyen házban laksz?</div>
+                <div class="innerbox">
+                    <label for="phone">Telefonszám*</label><br>
+                    <input type="tel" id="phone" name="phonenumber" placeholder="+36 -- --- ----">
+                </div>
+                <div class="innerbox">
+                    <label for="email">E-mail cím*</label><br>
+                    <input type="email" id="email" name="email" placeholder="email@valami">
+                </div>
+                <div class="innerbox">
+                    <label for="facebook">Facebook profilod</label><br>
+                    <input type="text" id="facebook" name="facebook" placeholder="http://facebook/valami">    
+                </div>
+                <div class="innerbox">
+                    <label for="twitter">Twitter profilod</label><br>
+                    <input type="text" id="twitter" name="twitter" placeholder="http://twitter/valami">
+                </div>
+                <div class="innerbox">
+                    <label for="house">Milyen házban laksz?</label><br>
+                    <input list="house" name="home" placeholder="válassz">
+                        <datalist id="house">
+                            <option value="First Choice">
+                            <option value="Second Choice">
+                            <option value="Third Choice">
+                            <option value="Fourth Choice">
+                        </datalist>
+                </div>
             </div>
+            
+        </div>
 
             <div class="introduction"></div>
             
-      </div> 
+        </div> 
     
     </form>
 
