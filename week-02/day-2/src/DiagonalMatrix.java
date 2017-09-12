@@ -29,11 +29,10 @@ public class DiagonalMatrix {
         }
 
         for (int i = 0; i <= matrix.length - 1; i++) {
-            String print = matrix[i][i];
-            for (int j = 0; j <= matrix.length - 1; j++) {
-                print = print + matrix[i][j];
+               for (int j = 0; j <= matrix.length - 1; j++) {
+               System.out.print(matrix[i][j]);
             }
-            System.out.println(print);
+            System.out.println();
         }
 
     }
