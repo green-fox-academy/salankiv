@@ -13,6 +13,7 @@ public class DrawTriangle {
         // The triangle should have as many lines as the number was
 
         Scanner myScanner = new Scanner(System.in);
+
         System.out.println("Give me a number:");
         int userNumber = myScanner.nextInt();
         String asterix = "";

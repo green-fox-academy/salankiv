@@ -15,7 +15,9 @@ public class CountFromTo {
         // 3
         // 4
         // 5
+
         Scanner myscanner = new Scanner(System.in);
+
         System.out.println("Give me a number to start from:");
         int firstNumber = myscanner.nextInt();
         System.out.println("Give me a number to end:");

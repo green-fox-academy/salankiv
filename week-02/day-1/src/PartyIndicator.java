@@ -16,6 +16,7 @@ public class PartyIndicator {
         //
         // It should print: Sausage party
         // If no girls are coming, regardless the count of the people
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Number of girls");
@@ -32,8 +33,5 @@ public class PartyIndicator {
         }   else {
             System.out.println("Sausage party");
         }
-
     }
-
-
 }
