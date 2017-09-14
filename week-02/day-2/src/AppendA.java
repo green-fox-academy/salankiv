@@ -15,5 +15,4 @@ public class AppendA {
     public static String appandA(String input) {
         return input + "a";
     }
-
 }

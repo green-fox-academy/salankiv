@@ -9,7 +9,6 @@ public class Doubling {
     }
 
     public static int doubling(int input) {
-        return input *2;
+        return input * 2;
     }
-
 }
