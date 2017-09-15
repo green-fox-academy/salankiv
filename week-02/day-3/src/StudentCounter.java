@@ -73,5 +73,12 @@ public class StudentCounter{
         }
 
         System.out.println(sumAges);
+
+
+        for (;;) {
+            System.out.println("I know that");
+            System.out.println("you know that");
+        }
+
     }
 }
