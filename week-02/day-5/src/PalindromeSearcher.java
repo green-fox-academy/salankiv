@@ -17,7 +17,7 @@ public class PalindromeSearcher {
         int block = 3;
         String charBlock = "";
 
-        while (block <= input.length() / 2) {
+        while (block <= input.length()) {
             for (int i = 0; i <= input.length() - block; i++) {
                 for (int j = 0; j < block ; j++) {
                     charBlock = charBlock + input.charAt(i + j);
