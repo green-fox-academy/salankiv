@@ -1,5 +1,6 @@
 .idea/
 out
+demo
 *.xml
 *.iml
 *.gf
