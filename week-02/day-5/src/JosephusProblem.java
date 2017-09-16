@@ -8,33 +8,43 @@ public class JosephusProblem {
         System.out.println("Give me the number of players:");
         int numberOfPlayers = myScanner.nextInt();
 
-        ArrayList<Integer> statusOfPlayers = new ArrayList<>();
+        ArrayList<Integer> livingPlayers = new ArrayList<>();
 
         for (int i = 0; i < numberOfPlayers; i++) {
-            statusOfPlayers.add(i + 1);
+            livingPlayers.add(i + 1);
         }
 
-        int sumOfLiving = 0;
+        System.out.println(livingPlayers);
 
-        for (int i = 0; i < numberOfPlayers; i++) {
-            sumOfLiving = sumOfLiving + statusOfPlayers.get(i);
+    /*    int sum = 0;
+
+        for (int i = 0; i < livingPlayers.size(); i++) {
+            sum = sum + livingPlayers.get(i);
         }
-
-        System.out.println(sumOfLiving);
-
-        while (sumOfLiving > statusOfPlayers.get(numberOfPlayers - 1)) {
-
-            if (numberOfPlayers % 2 == 0) {
-                for (int i = 0; i < numberOfPlayers; i += 2) {
-                    statusOfPlayers.set(i, 0);
-                }
+*/
+        int j = 0;
+        while (livingPlayers.size() > 1) {
+            for (int i = j; i < livingPlayers.size() - 1; i += 2) {
+                livingPlayers.set(i + 1, 0);
             }
-            sumOfLiving = 0;
-            for (int i = 0; i < numberOfPlayers; i++) {
-                sumOfLiving = sumOfLiving + statusOfPlayers.get(i);
-            }
-        }
 
-        System.out.println(statusOfPlayers);
+            if (livingPlayers.get(livingPlayers.size() - 1) == 0) {
+                j = 0;
+            } else {
+                j = -1;
+            }
+
+            for (int i = 0; i < livingPlayers.size(); i++) {
+                livingPlayers.remove(Integer.valueOf(0));
+            }
+/*
+            sum = 0;
+            for (int k = 0; k < livingPlayers.size(); k++) {
+                sum = sum + livingPlayers.get(k);
+
+            }
+*/
+        }
+        System.out.println(livingPlayers);
     }
 }
