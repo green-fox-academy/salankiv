@@ -14,11 +14,17 @@ public class Bubble {
         numberList.add(5);
 
         System.out.println(numberList);
+        boolean descending = false;
 
-        System.out.println(bubble(numberList));
+        System.out.println(bubble(numberList, descending));
     }
 
-    public static ArrayList bubble(ArrayList<Integer> inputList) {
+    public static ArrayList bubble(ArrayList<Integer> inputList, boolean inputOrder) {
+        if (inputOrder) {
+            for (int i = 0; i < inputList.size(); i++) {
+                inputList.set(i, inputList.get(i) * -1);
+            }
+        }
         for (int i = 0; i < inputList.size(); i++) {
             for (int j = 0; j < inputList.size() - 1; j++) {
                 if (inputList.get(j) > inputList.get(j + 1)) {
@@ -26,6 +32,11 @@ public class Bubble {
                     inputList.set(j, inputList.get(j + 1));
                     inputList.set(j + 1, temp);
                 }
+            }
+        }
+        if (inputOrder) {
+            for (int i = 0; i < inputList.size(); i++) {
+                inputList.set(i, inputList.get(i) * -1);
             }
         }
         return inputList;
