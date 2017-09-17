@@ -14,7 +14,10 @@ public class Unique {
         numberList.add(52);
         numberList.add(61);
         numberList.add(1);
+        numberList.add(1);
         numberList.add(34);
+        numberList.add(34);
+        numberList.add(61);
 
         Collections.sort(numberList);
         System.out.println(numberList);
@@ -22,9 +25,9 @@ public class Unique {
         ArrayList<Integer> sortedList = new ArrayList<>();
 
         for (int i = 0; i < numberList.size(); i++) {
-                if (i != numberList.size() -1 && numberList.get(i) == numberList.get(i + 1)) {
-                    sortedList.add(numberList.get(i));
-                    numberList.remove(i);
+            if (sortedList.contains(numberList.get(i))) {
+            } else if (i != numberList.size() - 1 && numberList.get(i) == numberList.get(i + 1)) {
+                sortedList.add(numberList.get(i));
                 } else {
                     sortedList.add(numberList.get(i));
                 }
