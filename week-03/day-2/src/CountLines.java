@@ -11,7 +11,7 @@ public class CountLines {
 		// It should return zero if it can't open the file, and
 		// should not raise any error.
 
-		System.out.println(numberOfLines("encoded-lines.txt"));
+		System.out.println(numberOfLines("src/encoded-lines.txt"));
 
 	}
 
