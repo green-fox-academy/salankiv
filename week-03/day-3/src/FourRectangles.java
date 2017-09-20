@@ -1,17 +1,19 @@
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FourRectangles {
+  public static void mainDraw(Graphics graphics){
+		// draw four different size and color rectangles.
 
-    public static void mainDraw(Graphics graphics){
-      // draw four different size and color rectangles.
-
-
-
-    }
+		for (int i = 1; i < 5; i++) {
+			graphics.setColor(new Color(i*40,i*5,i*60));
+			graphics.drawLine(i*10, i*10, i*110, i*10);
+			graphics.drawLine(i*110, i*10, i*110, i*110);
+			graphics.drawLine(i*10, i*110, i*110, i*110);
+			graphics.drawLine(i*10, i*10, i*10, i*110);
+		}
+	}
 
 //    Don't touch the code below
     static int WIDTH = 320;
