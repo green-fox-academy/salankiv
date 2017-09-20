@@ -1,18 +1,17 @@
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class PurpleSteps {
+	public static void mainDraw(Graphics graphics){
+    // reproduce this:
+    // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
 
-    public static void mainDraw(Graphics graphics){
-      // reproduce this:
-      // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
-
-
-
-    }
+		graphics.setColor(new Color(198,0,237));
+		for (int i = 1; i < 21; i++) {
+			graphics.fillRect(i*10, i*10, 10, 10);
+		}
+	}
 
 //    Don't touch the code below
     static int WIDTH = 320;
