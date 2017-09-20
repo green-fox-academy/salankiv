@@ -1,18 +1,22 @@
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlay {
+	public static void mainDraw(Graphics graphics){
+    // reproduce this:
+    // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/line-play/r1.png]
 
-    public static void mainDraw(Graphics graphics){
-      // reproduce this:
-      // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/line-play/r1.png]
+		graphics.setColor(Color.DARK_GRAY);
+		for (int i = 1; i < 16 ; i++) {
+			graphics.drawLine(i * 20, 5, 315, i * 20);
+		}
 
-
-
-    }
+		graphics.setColor(Color.GREEN);
+		for (int i = 1; i < 16 ; i++) {
+			graphics.drawLine(5, i * 20, i * 20, 338);
+		}
+	}
 
 //    Don't touch the code below
     static int WIDTH = 320;
