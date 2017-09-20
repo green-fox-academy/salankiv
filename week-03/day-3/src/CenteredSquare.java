@@ -1,17 +1,17 @@
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class CenteredSquare {
+	public static void mainDraw(Graphics graphics){
+    // draw a green 10x10 square to the canvas' center.
 
-    public static void mainDraw(Graphics graphics){
-      // draw a green 10x10 square to the canvas' center.
-
-
-
-    }
+		graphics.setColor(Color.GREEN);
+		graphics.drawLine((WIDTH / 2) - 5,(HEIGHT / 2) - 5, (WIDTH / 2) + 5, (HEIGHT / 2) - 5);
+		graphics.drawLine((WIDTH / 2) + 5,(HEIGHT / 2) - 5, (WIDTH / 2) + 5, (HEIGHT / 2) + 5);
+		graphics.drawLine((WIDTH / 2) - 5,(HEIGHT / 2) + 5, (WIDTH / 2) + 5, (HEIGHT / 2) + 5);
+		graphics.drawLine((WIDTH / 2) - 5,(HEIGHT / 2) - 5, (WIDTH / 2) - 5, (HEIGHT / 2) + 5);
+  }
 
 //    Don't touch the code below
     static int WIDTH = 320;
