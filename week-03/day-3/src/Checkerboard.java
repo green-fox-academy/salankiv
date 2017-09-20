@@ -1,17 +1,24 @@
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Checkerboard {
+	public static void mainDraw(Graphics graphics){
+    // fill the canvas with a checkerboard pattern.
 
-    public static void mainDraw(Graphics graphics){
-      // fill the canvas with a checkerboard pattern.
-
-
-
-    }
+		for (int i = 0; i < 8 ; i++) {
+			for (int j = 0; j < 8 ; j++) {
+				if (i % 2 == 0 && j % 2 == 0) {
+					graphics.setColor(Color.BLACK);
+				} else if (i % 2 == 1 && j % 2 == 1) {
+					graphics.setColor(Color.BLACK);
+				} else {
+					graphics.setColor(Color.WHITE);
+				}
+				graphics.fillRect(j * 40, i * 40,40,40);
+			}
+		}
+	}
 
 //    Don't touch the code below
     static int WIDTH = 320;
