@@ -3,24 +3,31 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class YellowGrids {
-	public static void mainDraw(Graphics graphics){
+	public static void mainDraw(Graphics graphics) {
 
 		graphics.setColor(Color.yellow);
-		graphics.fillRect(0,0,600,600);
+		graphics.fillRect(0, 0, 600, 600);
 		graphics.setColor(Color.black);
 
-		for (int i = 0; i <= 2; i++) {
-			graphics.drawRect(i * WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-			graphics.drawRect(WIDTH / 3, i * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-		}
-
-		for (int i = 1; i <= 2; i++) {
-			graphics.drawRect(i * WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-			graphics.drawRect(WIDTH / 3, i / 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-		}
-
+		drawingRecursiveRect(0, 600 / 3, 600 / 3, graphics);          				//leftBox
+		drawingRecursiveRect(600 / 3,0, 600 / 3, graphics); 									//upperBox
+		drawingRecursiveRect(2 * 600 / 3, 600 / 3, 600 / 3, graphics); 				//rightBox
+		drawingRecursiveRect(600 / 3, 2 * 600 / 3, 600 / 3, graphics);			 	//lowerBox
 
 	}
+
+	public static void drawingRecursiveRect(int x, int y, int size, Graphics graphics) {
+		if (size < 1) {
+			return;
+		}
+			graphics.drawRect(x, y, size, size);
+			drawingRecursiveRect(x, y + size / 3, size / 3, graphics);										//leftBoxRecursion
+			drawingRecursiveRect(x + size / 3, y, size / 3, graphics);										//upperBoxRecursion
+			drawingRecursiveRect(x + 2 * size / 3, y + size / 3, size / 3, graphics);	//rightBoxRecursion
+			drawingRecursiveRect(x + size / 3, y + 2 * size / 3, size / 3, graphics);	//lowerBoxRecursion
+	}
+
+
 
 
 	//    Don't touch the code below
