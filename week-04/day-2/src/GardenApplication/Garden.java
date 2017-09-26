@@ -1,12 +1,21 @@
 package GardenApplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Garden {
-	List<Tree> trees;
-	List<Flower> flowers;
+	List<Plant> plants;
 
-	public Garden(){
+	public Garden() {
+		plants = new ArrayList<>();
+	}
+
+	public void addTree(Tree newTree) {
+		plants.add(newTree);
+	}
+
+	public void addFlower(Flower newFlower) {
+		plants.add(newFlower);
 	}
 
 	public void watering() {
@@ -15,6 +24,24 @@ public class Garden {
 	}
 
 	public void status() {
-	// sout
+		for (int i = 0; i < plants.size(); i++) {
+			System.out.println(plants.get(i).name);
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		Garden exampleGarden = new Garden();
+		Flower flower1 = new Flower("orange");
+		Tree tree1 = new Tree("black");
+		Tree tree2 = new Tree("white");
+
+		exampleGarden.addFlower(flower1);
+		exampleGarden.addTree(tree1);
+		exampleGarden.addTree(tree2);
+
+		exampleGarden.status();
+
 	}
 }
