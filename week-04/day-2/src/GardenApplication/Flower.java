@@ -6,5 +6,7 @@ public class Flower extends Plant{
 		this.name = "Flower";
 		this.absorption = 0.75;
 		this.color = color;
+		this.thirstyLevel = 5;
 	}
+
 }

@@ -6,5 +6,7 @@ public class Tree extends Plant{
 		this.name = "Tree";
 		this.absorption = 0.4;
 		this.color = color;
+		this.thirstyLevel = 10;
 	}
+
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Plant {
 	double waterAmount;
+	double thirstyLevel;
 	double absorption;
 	boolean thirsty;
 	String color;
@@ -12,5 +13,9 @@ public class Plant {
 	public Plant() {
 		this.waterAmount = 0;
 		this.thirsty = true;
+	}
+
+	public void setThirsty() {
+		thirsty = this.waterAmount < this.thirstyLevel;
 	}
 }

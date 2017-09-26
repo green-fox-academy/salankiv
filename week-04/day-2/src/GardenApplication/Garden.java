@@ -24,9 +24,16 @@ public class Garden {
 		counterFlowers += 1;
 	}
 
-	public void watering() {
-	//	when watering it should only water those what needs water with equally divided amount amongst them
-	//	eg. watering with 40 and 4 of them need water then each gets watered with 10
+	public void watering(int amount) {
+		System.out.println("Watering with " + amount);
+		int counterThirsty = 0;
+		for (int i = 0; i < plants.size(); i++) {
+			if (plants.get(i).thirsty) counterThirsty++;
+		}
+		for (int i = 0; i < plants.size() ; i++) {
+			if (plants.get(i).thirsty) plants.get(i).waterAmount += amount / counterThirsty * plants.get(i).absorption;
+			plants.get(i).setThirsty();
+		}
 	}
 
 	public void status() {
@@ -53,6 +60,12 @@ public class Garden {
 		exampleGarden.addTree(tree1);
 		exampleGarden.addTree(tree2);
 
+		exampleGarden.status();
+		System.out.println();
+		exampleGarden.watering(40);
+		exampleGarden.status();
+		System.out.println();
+		exampleGarden.watering(100);
 		exampleGarden.status();
 
 	}
