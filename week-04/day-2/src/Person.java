@@ -18,7 +18,7 @@ public class Person {
 	}
 
 	public Person() {
-		this.name = "Jne Doe";
+		this.name = "Jane Doe";
 		this.age = 30;
 		this.gender = "female";
 	}

@@ -17,6 +17,10 @@ public class Student extends Person {
 	}
 
 	public Student(String name, int age, String gender, String previousOrganization) {
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.previousOrganization = previousOrganization;
 		this.skippedDays = 0;
 	}
 
@@ -24,4 +28,5 @@ public class Student extends Person {
 		this.previousOrganization = "The School of Life";
 		this.skippedDays = 0;
 	}
+
 }
