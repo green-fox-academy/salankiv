@@ -1,3 +1,5 @@
+package GreenFoxOrganization;
+
 import java.util.ArrayList;
 
 public class TestInput {

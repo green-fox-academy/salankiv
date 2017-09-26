@@ -1,3 +1,5 @@
+package GreenFoxOrganization;
+
 public class Person {
 	String name;
 	int age;

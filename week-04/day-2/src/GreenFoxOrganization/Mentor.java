@@ -1,3 +1,5 @@
+package GreenFoxOrganization;
+
 public class Mentor extends Person {
 	String level;
 

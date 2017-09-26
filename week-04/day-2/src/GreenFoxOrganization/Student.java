@@ -1,3 +1,5 @@
+package GreenFoxOrganization;
+
 public class Student extends Person {
 	String previousOrganization;
 	int skippedDays;
