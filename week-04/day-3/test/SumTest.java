@@ -10,7 +10,7 @@ public class SumTest {
 	Sum mySum = new Sum();
 	List<Integer> testlist = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 	List<Integer> testlist1 = new ArrayList<>(Arrays.asList());
-	List<Integer> testlist2 = new ArrayList<>(Arrays.asList());
+	List<Integer> testlist2;
 
 	@Test
 		public void testSumMethod() {
@@ -24,6 +24,6 @@ public class SumTest {
 
 	@Test
 	public void testSumMethod2() {
-		assertEquals(null, mySum.sumMethod(testlist2));
+		assertEquals(0, mySum.sumMethod(testlist2));
 	}
 }
