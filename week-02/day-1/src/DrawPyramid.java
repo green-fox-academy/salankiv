@@ -20,17 +20,17 @@ public class DrawPyramid {
         String asterix = "*";
         String whiteSpace = "";
 
-        System.out.println(asterix);
-        for (int i = 1; i < height; i++) {
-            for (int k = 0; k <= (height - i); k++) {
+        for (int i = 0; i < height; i++) {
+            for (int k = 0; k < height - i; k++) {
                 whiteSpace = whiteSpace + " ";
                 System.out.print(whiteSpace);
                 whiteSpace = "";
             }
-            for (int j = 0; j <= i; j = j + 2) {
+            for (int j = 0; j < i; j++) {
                 asterix = asterix + "**";
             }
             System.out.println(asterix);
+            asterix = "*";
         }
     }
 }

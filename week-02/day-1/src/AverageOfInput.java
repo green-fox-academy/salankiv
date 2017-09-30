@@ -1,4 +1,6 @@
+import java.nio.file.Files;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class AverageOfInput {
     public static void main(String[] args) {
@@ -8,23 +10,16 @@ public class AverageOfInput {
         // Sum: 22, Average: 4.4
 
         Scanner myScanner = new Scanner(System.in);
+        System.out.println("Give me 5 numbers:");
 
-        System.out.println("Give me a number:");
-        int a = myScanner.nextInt();
-
-        System.out.println("Give me a number:");
-        int b = myScanner.nextInt();
-
-        System.out.println("Give me a number:");
-        int c = myScanner.nextInt();
-
-        System.out.println("Give me a number:");
-        int d = myScanner.nextInt();
-
-        System.out.println("Give me a number:");
-        int e = myScanner.nextInt();
-
-        int sum = a + b + c + d + e;
+        int[] numbers = new int[5];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = myScanner.nextInt();
+        }
+        int sum = 0;
+        for (int n : numbers) {
+            sum += n;
+        }
         double average = sum / 5;
 
         System.out.println("Sum: " + sum);
