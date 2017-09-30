@@ -7,6 +7,7 @@ public class Reverse {
         // Try to solve this using charAt() first, and optionally anything else after.
 
         System.out.println(reverseFunction(reversed));
+        System.out.println(reverseFunctionNew(reversed));
     }
 
     public static String reverseFunction(String input) {
@@ -15,5 +16,12 @@ public class Reverse {
             reversedInput = reversedInput + input.charAt(i);
         }
         return reversedInput;
+    }
+
+    //OR
+
+    public static String reverseFunctionNew(String input) {
+        StringBuilder sb = new StringBuilder(input);
+        return sb.reverse().toString();
     }
 }

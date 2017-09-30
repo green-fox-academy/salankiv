@@ -21,5 +21,11 @@ public class TodoPrint {
         todoText = todoText.concat(diabloLine);
 
         System.out.println(todoText);
+
+        // OR
+
+        String todoText1 = " - Buy milk\n";
+        System.out.println(firstLine.concat(todoText1).concat(gamesLine.concat(diabloLine)));
+
     }
 }

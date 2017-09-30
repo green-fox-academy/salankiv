@@ -74,11 +74,21 @@ public class StudentCounter{
 
         System.out.println(sumAges);
 
+        //OR
 
-        for (;;) {
-            System.out.println("I know that");
-            System.out.println("you know that");
+        for (Map<String, Object> m : map) {
+            if (Integer.valueOf(m.get("candies").toString()) > 4) {
+                System.out.println(m.get("name"));
+            }
         }
 
-    }
+        double sumAges2 = 0;
+		for (Map<String, Object> m : map) {
+			if (Integer.valueOf(m.get("candies").toString()) < 5) {
+				sumAges2 += Double.valueOf(m.get("age").toString());
+			}
+		}
+		System.out.println(sumAges2);
+	}
+
 }

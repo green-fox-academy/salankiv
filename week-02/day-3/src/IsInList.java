@@ -12,8 +12,10 @@ public class IsInList{
         if (contains) {
             System.out.println("True");
         } else {
-            System.out.println("False");
+            System.out.println();
         }
+
+        System.out.println(list.contains(4) && list.contains(8) && list.contains(12) && list.contains(16));
 
         // OR
 
