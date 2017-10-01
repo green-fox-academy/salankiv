@@ -34,6 +34,6 @@ public class Aircraft {
 	}
 
 	public String getStatus() {
-		return this.status = "Type: " + this.type + "Ammo: " + this.currentAmmo + "Base Damage: " + this.baseDamage + "All Damage: " + this.allDamage;
+		return this.status = "Type: " + this.type + " Ammo: " + this.currentAmmo + " Base Damage: " + this.baseDamage + " All Damage: " + this.allDamage;
 	}
 }
