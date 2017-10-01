@@ -20,11 +20,8 @@ public class Bubble {
     }
 
     public static ArrayList bubble(ArrayList<Integer> inputList, boolean inputOrder) {
-        if (inputOrder) {
-            for (int i = 0; i < inputList.size(); i++) {
-                inputList.set(i, inputList.get(i) * -1);
-            }
-        }
+        if (inputOrder) makeOpposite(inputList);
+
         for (int i = 0; i < inputList.size(); i++) {
             for (int j = 0; j < inputList.size() - 1; j++) {
                 if (inputList.get(j) > inputList.get(j + 1)) {
@@ -34,11 +31,15 @@ public class Bubble {
                 }
             }
         }
-        if (inputOrder) {
-            for (int i = 0; i < inputList.size(); i++) {
-                inputList.set(i, inputList.get(i) * -1);
-            }
-        }
+
+        if (inputOrder) makeOpposite(inputList);
         return inputList;
     }
+
+    static void makeOpposite(ArrayList<Integer> inputList) {
+        for (int i = 0; i < inputList.size(); i++) {
+            inputList.set(i, inputList.get(i) * -1);
+        }
+    }
+
 }
