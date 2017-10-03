@@ -8,13 +8,31 @@ import java.util.Arrays;
 public class Board extends JComponent implements KeyListener {
 
 	Hero theHero;
+	BoardPosition boardPosition;
+	ArrayList<Floor> floorList;
+	ArrayList<Wall> wallList;
 
 	public Board() {
 		// set the size of your draw board
 		setPreferredSize(new Dimension(720, 720));
 		setVisible(true);
 		theHero = new Hero();
+		boardPosition = new BoardPosition();
 	}
+
+//	public void fillLists(){
+//		for (int i = 0; i < 10; i++) {
+//			for (int j = 0; j < 10; j++) {
+//				if (boardPosition.getValue(i, j) == 0) {
+//					Floor floor = new Floor(i, j);
+//					floorList.add(floor);
+//				} else {
+//					Wall wall = new Wall (i, j);
+//					wallList.add(wall);
+//				}
+//			}
+//		}
+//	}
 
 	@Override
 	public void paint(Graphics graphics) {
@@ -22,23 +40,30 @@ public class Board extends JComponent implements KeyListener {
 		// here you have a 720x720 canvas
 		// you can create and draw an image using the class below e.g.
 
-		PositionedImage imageFloor = new PositionedImage("./assets/floor.png", 0,0);
+//		if (floorList.size() != 0) {
+//			for (int i = 0; i < floorList.size(); i++) {
+//				floorList.get(i).draw(graphics);
+//			}
+//		} else fillLists();
+//
+//		if (wallList.size() != 0) {
+//			for (int i = 0; i < wallList.size(); i++) {
+//				wallList.get(i).draw(graphics);
+//			}
+//		} else fillLists();
+
+
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
-				imageFloor.posX = i * 72;
-				imageFloor.posY = j *72;
-				imageFloor.draw(graphics);
+				if (boardPosition.getValue(i, j) == 0) {
+					Floor floor = new Floor(i, j);
+					floor.draw(graphics);
+				} else {
+					Wall wall = new Wall(i, j);
+					wall.draw(graphics);
+				}
 			}
 
-		}
-
-		PositionedImage imageWall = new PositionedImage("./assets/wall.png", 0,0);
-		ArrayList<Integer> wallListX = new ArrayList<>(Arrays.asList(3,5,3,5,7,8,1,2,3,5,7,8,5,0,1,2,3,5,6,7,8,1,3,8,1,3,5,6,8,5,6,8,1,2,3,8,3,5,6));
-		ArrayList<Integer> wallListY = new ArrayList<>(Arrays.asList(0,0,1,1,1,1,2,2,2,2,2,2,3,4,4,4,4,4,4,4,4,5,5,5,6,6,6,6,6,7,7,7,8,8,8,8,9,9,9));
-		for (int i  = 0; i < wallListX.size(); i++) {
-			imageWall.posX = wallListX.get(i) * 72;
-			imageWall.posY = wallListY.get(i) * 72;
-			imageWall.draw(graphics);
 		}
 
 		theHero.draw(graphics);
@@ -77,13 +102,13 @@ public class Board extends JComponent implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// When the up or down keys hit, we change the position of our box
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			theHero.posY -= 72;
+			theHero.posY -= 1;
 		} else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-			theHero.posX += 72;
+			theHero.posY += 1;
 		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			theHero.posX += 72;
+			theHero.posX += 1;
 		} else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-			theHero.posX -= 72;
+			theHero.posX -= 1;
 		}
 		// and redraw to have a new picture with the new coordinates
 		repaint();
