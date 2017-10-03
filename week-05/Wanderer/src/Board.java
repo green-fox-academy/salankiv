@@ -26,10 +26,10 @@ public class Board extends JComponent implements KeyListener {
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				if (boardPosition.getValue(i, j) == 0) {
-					Floor floor = new Floor(i, j);
+					Floor floor = new Floor(j, i);
 					floorList.add(floor);
 				} else {
-					Wall wall = new Wall(i, j);
+					Wall wall = new Wall(j, i);
 					wallList.add(wall);
 				}
 			}
@@ -89,13 +89,13 @@ public class Board extends JComponent implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// When the up or down keys hit, we change the position of our box
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
+		if (e.getKeyCode() == KeyEvent.VK_UP && boardPosition.getValue(theHero.posY - 1, theHero.posX) == 0) {
 			theHero.posY -= 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+		} else if(e.getKeyCode() == KeyEvent.VK_DOWN && boardPosition.getValue(theHero.posY + 1, theHero.posX) == 0) {
 			theHero.posY += 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT && boardPosition.getValue(theHero.posY, theHero.posX + 1) == 0) {
 			theHero.posX += 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+		} else if(e.getKeyCode() == KeyEvent.VK_LEFT && boardPosition.getValue(theHero.posY, theHero.posX -1) == 0) {
 			theHero.posX -= 1;
 		}
 		// and redraw to have a new picture with the new coordinates
