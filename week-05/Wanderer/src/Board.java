@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Board extends JComponent implements KeyListener {
 
 	Hero theHero;
-	BoardPosition boardPosition;
+	BoardMap boardMap;
 	ArrayList<Floor> floorList;
 	ArrayList<Wall> wallList;
 
@@ -17,7 +17,7 @@ public class Board extends JComponent implements KeyListener {
 		setPreferredSize(new Dimension(720, 720));
 		setVisible(true);
 		theHero = new Hero();
-		boardPosition = new BoardPosition();
+		boardMap = new BoardMap();
 		floorList = new ArrayList<>();
 		wallList = new ArrayList<>();
 	}
@@ -25,7 +25,7 @@ public class Board extends JComponent implements KeyListener {
 	public void fillList(){
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
-				if (boardPosition.getValue(i, j) == 0) {
+				if (boardMap.getValue(i, j) == 0) {
 					Floor floor = new Floor(j, i);
 					floorList.add(floor);
 				} else {
@@ -42,7 +42,7 @@ public class Board extends JComponent implements KeyListener {
 		// here you have a 720x720 canvas
 		// you can create and draw an image using the class below e.g.
 
-		if (floorList.size() == 0) {
+		if (floorList.size() == 0 || wallList.size() == 0) {
 			fillList();
 		}
 
@@ -89,13 +89,13 @@ public class Board extends JComponent implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// When the up or down keys hit, we change the position of our box
-		if (e.getKeyCode() == KeyEvent.VK_UP && boardPosition.getValue(theHero.posY - 1, theHero.posX) == 0) {
+		if (e.getKeyCode() == KeyEvent.VK_UP && boardMap.getValue(theHero.posY - 1, theHero.posX) == 0) {
 			theHero.posY -= 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_DOWN && boardPosition.getValue(theHero.posY + 1, theHero.posX) == 0) {
+		} else if(e.getKeyCode() == KeyEvent.VK_DOWN && boardMap.getValue(theHero.posY + 1, theHero.posX) == 0) {
 			theHero.posY += 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT && boardPosition.getValue(theHero.posY, theHero.posX + 1) == 0) {
+		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT && boardMap.getValue(theHero.posY, theHero.posX + 1) == 0) {
 			theHero.posX += 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_LEFT && boardPosition.getValue(theHero.posY, theHero.posX -1) == 0) {
+		} else if(e.getKeyCode() == KeyEvent.VK_LEFT && boardMap.getValue(theHero.posY, theHero.posX -1) == 0) {
 			theHero.posX -= 1;
 		}
 		// and redraw to have a new picture with the new coordinates

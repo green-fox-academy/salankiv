@@ -1,4 +1,4 @@
-public class BoardPosition {
+public class BoardMap {
 
 	int value;
 	int x;
@@ -15,9 +15,6 @@ public class BoardPosition {
 			{0, 0, 1, 0, 0, 0, 1, 1, 0, 0},
 			{0, 1, 1, 0, 0, 0, 1, 1, 0, 0}
 	};
-
-	public BoardPosition() {
-	}
 
 	public int getValue(int x, int y) {
 		this.value = boardMap[x][y];
