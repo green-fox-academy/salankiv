@@ -7,16 +7,13 @@ import java.util.Arrays;
 
 public class Board extends JComponent implements KeyListener {
 
-	int testBoxX;
-	int testBoxY;
+	Hero theHero;
 
 	public Board() {
-	//	testBoxX = 300;
-	//	testBoxY = 300;
-
 		// set the size of your draw board
 		setPreferredSize(new Dimension(720, 720));
 		setVisible(true);
+		theHero = new Hero();
 	}
 
 	@Override
@@ -44,8 +41,8 @@ public class Board extends JComponent implements KeyListener {
 			imageWall.draw(graphics);
 		}
 
-		PositionedImage imageHero = new PositionedImage("./assets/hero-down.png", testBoxX,testBoxY);
-		imageHero.draw(graphics);
+		theHero.draw(graphics);
+
 	}
 
 	public static void main(String[] args) {
@@ -80,15 +77,16 @@ public class Board extends JComponent implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// When the up or down keys hit, we change the position of our box
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			testBoxY -= 72;
+			theHero.posY -= 72;
 		} else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-			testBoxY += 72;
+			theHero.posX += 72;
 		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			testBoxX += 72;
+			theHero.posX += 72;
 		} else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-			testBoxX -= 72;
+			theHero.posX -= 72;
 		}
 		// and redraw to have a new picture with the new coordinates
 		repaint();
 	}
+
 }
