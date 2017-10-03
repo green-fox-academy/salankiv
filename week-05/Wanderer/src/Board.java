@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Board extends JComponent implements KeyListener {
 
@@ -9,8 +11,8 @@ public class Board extends JComponent implements KeyListener {
 	int testBoxY;
 
 	public Board() {
-		testBoxX = 300;
-		testBoxY = 300;
+	//	testBoxX = 300;
+	//	testBoxY = 300;
 
 		// set the size of your draw board
 		setPreferredSize(new Dimension(720, 720));
@@ -20,11 +22,29 @@ public class Board extends JComponent implements KeyListener {
 	@Override
 	public void paint(Graphics graphics) {
 		super.paint(graphics);
-		graphics.fillRect(testBoxX, testBoxY, 100, 100);
+	//	graphics.fillRect(testBoxX, testBoxY, 100, 100);
 		// here you have a 720x720 canvas
 		// you can create and draw an image using the class below e.g.
-		PositionedImage image = new PositionedImage("./assets/floor.png", 300, 300);
-		image.draw(graphics);
+
+		PositionedImage imageFloor = new PositionedImage("./assets/floor.png", 0,0);
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				imageFloor.posX = i * 72;
+				imageFloor.posY = j *72;
+				imageFloor.draw(graphics);
+			}
+
+		}
+
+		PositionedImage imageWall = new PositionedImage("./assets/wall.png", 0,0);
+		ArrayList<Integer> wallListX = new ArrayList<>(Arrays.asList(3,5,3,5,7,8,1,2,3,5,7,8,5,0,1,2,3,5,6,7,8,1,3,8,1,3,5,6,8,5,6,8,1,2,3,8,3,5,6));
+		ArrayList<Integer> wallListY = new ArrayList<>(Arrays.asList(0,0,1,1,1,1,2,2,2,2,2,2,3,4,4,4,4,4,4,4,4,5,5,5,6,6,6,6,6,7,7,7,8,8,8,8,9,9,9));
+		for (int i  = 0; i < wallListX.size(); i++) {
+			imageWall.posX = wallListX.get(i) * 72;
+			imageWall.posY = wallListY.get(i) * 72;
+			imageWall.draw(graphics);
+		}
+
 	}
 
 	public static void main(String[] args) {
