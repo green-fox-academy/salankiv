@@ -18,21 +18,23 @@ public class Board extends JComponent implements KeyListener {
 		setVisible(true);
 		theHero = new Hero();
 		boardPosition = new BoardPosition();
+		floorList = new ArrayList<>();
+		wallList = new ArrayList<>();
 	}
 
-//	public void fillLists(){
-//		for (int i = 0; i < 10; i++) {
-//			for (int j = 0; j < 10; j++) {
-//				if (boardPosition.getValue(i, j) == 0) {
-//					Floor floor = new Floor(i, j);
-//					floorList.add(floor);
-//				} else {
-//					Wall wall = new Wall (i, j);
-//					wallList.add(wall);
-//				}
-//			}
-//		}
-//	}
+	public void fillList(){
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (boardPosition.getValue(i, j) == 0) {
+					Floor floor = new Floor(i, j);
+					floorList.add(floor);
+				} else {
+					Wall wall = new Wall(i, j);
+					wallList.add(wall);
+				}
+			}
+		}
+	}
 
 	@Override
 	public void paint(Graphics graphics) {
@@ -40,30 +42,16 @@ public class Board extends JComponent implements KeyListener {
 		// here you have a 720x720 canvas
 		// you can create and draw an image using the class below e.g.
 
-//		if (floorList.size() != 0) {
-//			for (int i = 0; i < floorList.size(); i++) {
-//				floorList.get(i).draw(graphics);
-//			}
-//		} else fillLists();
-//
-//		if (wallList.size() != 0) {
-//			for (int i = 0; i < wallList.size(); i++) {
-//				wallList.get(i).draw(graphics);
-//			}
-//		} else fillLists();
+		if (floorList.size() == 0) {
+			fillList();
+		}
 
+		for (int i = 0; i < floorList.size(); i++) {
+			floorList.get(i).draw(graphics);
+		}
 
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				if (boardPosition.getValue(i, j) == 0) {
-					Floor floor = new Floor(i, j);
-					floor.draw(graphics);
-				} else {
-					Wall wall = new Wall(i, j);
-					wall.draw(graphics);
-				}
-			}
-
+		for (int i = 0; i < wallList.size(); i++) {
+			wallList.get(i).draw(graphics);
 		}
 
 		theHero.draw(graphics);
