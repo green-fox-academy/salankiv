@@ -66,7 +66,7 @@ public class Board extends JComponent implements KeyListener {
 		}
 
 		if (characsList.size() == 0) {
-			createCharacs(3);
+			createCharacs(6);
 		}
 
 		for (int i = 0; i < characsList.size(); i++) {

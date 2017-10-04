@@ -6,7 +6,7 @@ public class Skeleton extends Characs {
 		this.boardMap = boardMap;
 		this.posX = generateCoord();
 		this.posY = generateCoord();
-		if (boardMap.getValue(this.posX, this.posY) == 1) {
+		while (boardMap.getValue(this.posX, this.posY) != 0) {
 			this.posX = generateCoord();
 			this.posY = generateCoord();
 		}
