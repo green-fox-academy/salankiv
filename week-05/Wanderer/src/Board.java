@@ -11,6 +11,7 @@ public class Board extends JComponent implements KeyListener {
 	BoardMap boardMap;
 	ArrayList<Floor> floorList;
 	ArrayList<Wall> wallList;
+	KeyFunction keyFunction;
 
 	public Board() {
 		// set the size of your draw board
@@ -20,6 +21,7 @@ public class Board extends JComponent implements KeyListener {
 		boardMap = new BoardMap();
 		floorList = new ArrayList<>();
 		wallList = new ArrayList<>();
+		keyFunction = new KeyFunction(theHero, boardMap);
 	}
 
 	public void fillList(){
@@ -76,6 +78,7 @@ public class Board extends JComponent implements KeyListener {
 
 	// To be a KeyListener the class needs to have these 3 methods in it
 	@Override
+//	public void keyTyped(KeyEvent e) {
 	public void keyTyped(KeyEvent e) {
 
 	}
@@ -88,7 +91,8 @@ public class Board extends JComponent implements KeyListener {
 	// But actually we can use just this one for our goals here
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// When the up or down keys hit, we change the position of our box
+	keyFunction.keyWhatShouldHappen(e);
+/*			// When the up or down keys hit, we change the position of our box
 		if (e.getKeyCode() == KeyEvent.VK_UP && boardMap.getValue(theHero.posY - 1, theHero.posX) == 0) {
 			theHero.movingUp();
 		} else if(e.getKeyCode() == KeyEvent.VK_DOWN && boardMap.getValue(theHero.posY + 1, theHero.posX) == 0) {
@@ -99,7 +103,7 @@ public class Board extends JComponent implements KeyListener {
 			theHero.movingLeft();
 		}
 		// and redraw to have a new picture with the new coordinates
-		repaint();
+*/		repaint();
 	}
 
 }
