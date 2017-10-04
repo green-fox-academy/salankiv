@@ -6,7 +6,7 @@ public class Boss extends Characs{
 		this.boardMap = boardMap;
 		this.posX = generateCoord();
 		this.posY = generateCoord();
-		while (boardMap.getValue(this.posX, this.posY) != 0) {
+		while (boardMap.getValue(posY, posX) != 0) {
 			this.posX = generateCoord();
 			this.posY = generateCoord();
 		}
