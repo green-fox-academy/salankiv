@@ -41,6 +41,8 @@ public class Board extends JComponent implements KeyListener {
 		Hero theHero = new Hero();
 		characsList.add(theHero);
 		keyFunction = new KeyFunction(theHero, boardMap);
+		Skeleton skeleton = new Skeleton();
+		characsList.add(skeleton);
 	}
 
 	@Override
