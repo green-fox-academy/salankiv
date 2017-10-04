@@ -90,13 +90,13 @@ public class Board extends JComponent implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// When the up or down keys hit, we change the position of our box
 		if (e.getKeyCode() == KeyEvent.VK_UP && boardMap.getValue(theHero.posY - 1, theHero.posX) == 0) {
-			theHero.posY -= 1;
+			theHero.movingUp();
 		} else if(e.getKeyCode() == KeyEvent.VK_DOWN && boardMap.getValue(theHero.posY + 1, theHero.posX) == 0) {
-			theHero.posY += 1;
+			theHero.movingDown();
 		} else if(e.getKeyCode() == KeyEvent.VK_RIGHT && boardMap.getValue(theHero.posY, theHero.posX + 1) == 0) {
-			theHero.posX += 1;
+			theHero.movingRight();
 		} else if(e.getKeyCode() == KeyEvent.VK_LEFT && boardMap.getValue(theHero.posY, theHero.posX -1) == 0) {
-			theHero.posX -= 1;
+			theHero.movingLeft();
 		}
 		// and redraw to have a new picture with the new coordinates
 		repaint();
