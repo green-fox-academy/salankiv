@@ -37,12 +37,14 @@ public class Board extends JComponent implements KeyListener {
 		}
 	}
 
-	public void createCharacs() {
+	public void createCharacs(int numberOfSkeletons) {
 		Hero theHero = new Hero();
 		characsList.add(theHero);
 		keyFunction = new KeyFunction(theHero, boardMap);
-		Skeleton skeleton = new Skeleton();
-		characsList.add(skeleton);
+		for (int i = 0; i < numberOfSkeletons; i++) {
+			Skeleton skeleton = new Skeleton(boardMap);
+			characsList.add(skeleton);
+		}
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class Board extends JComponent implements KeyListener {
 		}
 
 		if (characsList.size() == 0) {
-			createCharacs();
+			createCharacs(3);
 		}
 
 		for (int i = 0; i < characsList.size(); i++) {
