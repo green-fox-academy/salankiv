@@ -1,12 +1,11 @@
 public class Hud {
-	String hud;
-	Hero theHero;
+	Characs type;
 
-	public Hud(Hero theHero) {
-		this.theHero = theHero;
+	public Hud(Characs type) {
+		this.type = type;
 	}
 
 	public String getHud() {
-		return theHero.hudInfo;
+		return type.hudInfo;
 	}
 }

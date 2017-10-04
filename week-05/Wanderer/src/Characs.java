@@ -1,5 +1,6 @@
 public class Characs extends PositionedImage {
-	String type;
+	Object type;
+	String typeInfo;
 	String hudInfo;
 	int level;
 	int maxHP;
@@ -7,7 +8,7 @@ public class Characs extends PositionedImage {
 	int defendP;
 	int strikeP;
 
-	public Characs(String filename, int posX, int posY, String type) {
+	public Characs(String filename, int posX, int posY, Object type) {
 		super(filename, posX, posY);
 		this.level = 1;
 		this.maxHP = 10;

@@ -15,7 +15,8 @@ public class Skeleton extends Characs {
 		this.currentHP = 10;
 		this.defendP = 8;
 		this.strikeP = 6;
-		this.hudInfo = "Type: " + type + " (Level: " + this.level + ".) HP: " + this.currentHP + "/" + this.maxHP;
+		this.typeInfo = "Type: skeleton";
+		this.hudInfo = typeInfo + " (Level: " + this.level + ".) HP: " + this.currentHP + "/" + this.maxHP;
 	}
 
 	public int generateCoord() {
