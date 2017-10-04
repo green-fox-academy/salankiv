@@ -6,6 +6,12 @@ public class Hero extends Characs{
 
 	public Hero() {
 		super("./assets/hero-down.png", 0, 0, "hero");
+		this.level = 1;
+		this.maxHP = 10;
+		this.currentHP = 10;
+		this.defendP = 8;
+		this.strikeP = 6;
+		this.hudInfo = "Type: " + type + " (Level: " + this.level + ".) HP: " + this.currentHP + "/" + this.maxHP;
 	}
 
 	public void movingUp() {

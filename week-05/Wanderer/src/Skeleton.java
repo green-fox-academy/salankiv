@@ -10,6 +10,12 @@ public class Skeleton extends Characs {
 			this.posX = generateCoord();
 			this.posY = generateCoord();
 		}
+		this.level = 1;
+		this.maxHP = 10;
+		this.currentHP = 10;
+		this.defendP = 8;
+		this.strikeP = 6;
+		this.hudInfo = "Type: " + type + " (Level: " + this.level + ".) HP: " + this.currentHP + "/" + this.maxHP;
 	}
 
 	public int generateCoord() {

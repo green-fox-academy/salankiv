@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Board extends JComponent implements KeyListener {
 
@@ -12,10 +13,11 @@ public class Board extends JComponent implements KeyListener {
 	ArrayList<Floor> floorList;
 	ArrayList<Wall> wallList;
 	KeyFunction keyFunction;
+	Hud heroHud;
 
 	public Board() {
 		// set the size of your draw board
-		setPreferredSize(new Dimension(720, 720));
+		setPreferredSize(new Dimension(720, 850));
 		setVisible(true);
 		characsList = new ArrayList<>();
 		boardMap = new BoardMap();
@@ -40,6 +42,7 @@ public class Board extends JComponent implements KeyListener {
 	public void createCharacs(int numberOfSkeletons) {
 		Hero theHero = new Hero();
 		characsList.add(theHero);
+		heroHud = new Hud(theHero);
 		keyFunction = new KeyFunction(theHero, boardMap);
 		for (int i = 0; i < numberOfSkeletons; i++) {
 			Skeleton skeleton = new Skeleton(boardMap);
@@ -71,6 +74,13 @@ public class Board extends JComponent implements KeyListener {
 		for (int i = 0; i < characsList.size(); i++) {
 			characsList.get(i).draw(graphics);
 		}
+
+		graphics.setColor(Color.WHITE);
+		graphics.fillRect(0, 720, 720, 130);
+		graphics.setColor(Color.BLACK);
+		Font myFont = new Font("Arial", 3, 24);
+		graphics.setFont(myFont);
+		graphics.drawString(heroHud.getHud(), 10, 740);
 	}
 
 	public static void main(String[] args) {
