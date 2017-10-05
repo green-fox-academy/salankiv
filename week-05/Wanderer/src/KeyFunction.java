@@ -1,5 +1,10 @@
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class KeyFunction {
 	Hero theHero;
@@ -31,6 +36,21 @@ public class KeyFunction {
 			} else theHero.turnRight();
 		}	else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 				theHero.fight(checkEnemy());
+		}	else if (e.getKeyCode() == KeyEvent.VK_M) {
+				Path saveFile = Paths.get("../assets/save.txt");
+				List<String> list = new ArrayList<>();
+				String save = "";
+				StringBuilder sb = new StringBuilder();
+				for (int i = 0; i < characsList.size(); i++) {
+					sb.append(characsList.get(i).currentHP);
+					save = save + sb.toString();
+				}
+			System.out.println(save);
+			try {
+				Files.write(saveFile, list);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 

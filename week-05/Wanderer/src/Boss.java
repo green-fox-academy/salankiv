@@ -1,7 +1,7 @@
 public class Boss extends Characs{
 
 	public Boss(int[] position) {
-		super("./assets/boss.png", 0, 5, "boss");
+		super("../assets/boss.png", 0, 5, "boss");
 		this.posX = position[0];
 		this.posY = position[1];
 		this.level = 1;

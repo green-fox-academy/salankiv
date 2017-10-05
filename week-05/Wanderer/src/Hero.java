@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Hero extends Characs{
 
 	public Hero() {
-		super("./assets/hero-down.png", 0, 0, "hero");
+		super("../assets/hero-down.png", 0, 0, "hero");
 		this.level = 1;
 		this.maxHP = 10;
 		this.currentHP = 10;
@@ -16,7 +16,7 @@ public class Hero extends Characs{
 	public void movingUp() {
 		this.posY -= 1;
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-up.png"));
+			this.image = ImageIO.read(new File("../assets/hero-up.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -25,7 +25,7 @@ public class Hero extends Characs{
 	public void movingDown() {
 		this.posY += 1;
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-down.png"));
+			this.image = ImageIO.read(new File("../assets/hero-down.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -34,7 +34,7 @@ public class Hero extends Characs{
 	public void movingRight() {
 		this.posX += 1;
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-right.png"));
+			this.image = ImageIO.read(new File("../assets/hero-right.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -43,7 +43,7 @@ public class Hero extends Characs{
 	public void movingLeft() {
 		this.posX -= 1;
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-left.png"));
+			this.image = ImageIO.read(new File("../assets/hero-left.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,7 +51,7 @@ public class Hero extends Characs{
 
 	public void turnDown() {
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-down.png"));
+			this.image = ImageIO.read(new File("../assets/hero-down.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -59,7 +59,7 @@ public class Hero extends Characs{
 
 	public void turnUp() {
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-up.png"));
+			this.image = ImageIO.read(new File("../assets/hero-up.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -67,7 +67,7 @@ public class Hero extends Characs{
 
 	public void turnRight() {
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-right.png"));
+			this.image = ImageIO.read(new File("../assets/hero-right.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -75,7 +75,7 @@ public class Hero extends Characs{
 
 	public void turnLeft() {
 		try {
-			this.image = ImageIO.read(new File("./assets/hero-left.png"));
+			this.image = ImageIO.read(new File("../assets/hero-left.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
