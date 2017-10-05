@@ -43,11 +43,11 @@ public class Board extends JComponent implements KeyListener {
 		createHuds(theHero);
 		keyFunction = new KeyFunction(theHero, boardMap);
 		for (int i = 0; i < numberOfSkeletons; i++) {
-			Skeleton skeleton = new Skeleton(boardMap);
+			Skeleton skeleton = new Skeleton(boardMap.getNotWallCoords());
 			characsList.add(skeleton);
 			createHuds(skeleton);
 		}
-		Boss theBoss = new Boss(boardMap);
+		Boss theBoss = new Boss(boardMap.getNotWallCoords());
 		characsList.add(theBoss);
 		createHuds(theBoss);
 	}

@@ -1,15 +1,9 @@
 public class Skeleton extends Characs {
-	BoardMap boardMap;
 
-	public Skeleton(BoardMap boardMap) {
+	public Skeleton(int[] position) {
 		super("./assets/skeleton.png", 0, 0, "skeleton");
-		this.boardMap = boardMap;
-		this.posX = generateCoord();
-		this.posY = generateCoord();
-		while (boardMap.getValue(posY, posX) != 0) {
-			this.posX = generateCoord();
-			this.posY = generateCoord();
-		}
+		this.posX = position[0];
+		this.posY = position[1];
 		this.level = 1;
 		this.maxHP = 10;
 		this.currentHP = 10;
@@ -17,10 +11,6 @@ public class Skeleton extends Characs {
 		this.strikeP = 6;
 		this.typeInfo = "Type: skeleton";
 		this.hudInfo = typeInfo + " (Level: " + this.level + ".) HP: " + this.currentHP + "/" + this.maxHP;
-	}
-
-	public int generateCoord() {
-		return  (int) (Math.random() * 10);
 	}
 
 }
