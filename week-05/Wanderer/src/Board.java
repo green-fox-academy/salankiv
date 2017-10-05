@@ -23,7 +23,7 @@ public class Board extends JComponent implements KeyListener {
 		theHud = new Hud();
 	}
 
-	public void fillList(){
+	public void createMap(){
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				if (boardMap.getValue(i, j) == 0) {
@@ -40,7 +40,7 @@ public class Board extends JComponent implements KeyListener {
 	public void createCharacs(int numberOfSkeletons) {
 		Hero theHero = new Hero();
 		characsList.add(theHero);
-		keyFunction = new KeyFunction(theHero, boardMap);
+		keyFunction = new KeyFunction(theHero, boardMap, characsList);
 		for (int i = 0; i < numberOfSkeletons; i++) {
 			Skeleton skeleton = new Skeleton(boardMap.getNotWallCoords());
 			characsList.add(skeleton);
@@ -48,13 +48,13 @@ public class Board extends JComponent implements KeyListener {
 		Boss theBoss = new Boss(boardMap.getNotWallCoords());
 		characsList.add(theBoss);
 	}
-	
+
 	@Override
 	public void paint(Graphics graphics) {
 		super.paint(graphics);
 
 		if (floorList.size() == 0 || wallList.size() == 0) {
-			fillList();
+			createMap();
 		}
 		for (int i = 0; i < floorList.size(); i++) {
 			floorList.get(i).draw(graphics);
@@ -71,7 +71,12 @@ public class Board extends JComponent implements KeyListener {
 		}
 
 		theHud.drawHud(graphics);
-		theHud.getHudInfo(characsList.get(0), graphics);
+		theHud.getHudInfo(characsList.get(0), graphics, "up");
+		for (int i = 1; i < characsList.size(); i++) {
+			if (characsList.get(i).posX == characsList.get(0).posX && characsList.get(i).posY == characsList.get(0).posY) {
+				theHud.getHudInfo(characsList.get(i), graphics, "down");
+			}
+		}
 	}
 
 	public static void main(String[] args) {

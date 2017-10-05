@@ -10,11 +10,15 @@ public class Hud {
 		graphics.fillRect(0, 720, 720, 130);
 	}
 
-	public void getHudInfo(Characs characs, Graphics graphics) {
+	public void getHudInfo(Characs characs, Graphics graphics, String position) {
+		int pos = 780;
+		if (position.equals("up")) {
+			pos = 740;
+		}
 		graphics.setColor(Color.BLACK);
 		Font myFont = new Font("Arial", 3, 24);
 		graphics.setFont(myFont);
-		graphics.drawString(characs.hudInfo, 10, 740);
+		graphics.drawString(characs.hudInfo, 10, pos);
 	}
 
 }

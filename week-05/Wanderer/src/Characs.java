@@ -15,6 +15,15 @@ public class Characs extends PositionedImage {
 		this.currentHP = 10;
 		this.defendP = 8;
 		this.strikeP = 6;
+		this.typeInfo = "Type: " + type;
+		this.hudInfo = "Current HP" + this.currentHP;
 	}
 
+	public void fight(Characs enemy) {
+		currentHP = currentHP - 1;
+	}
+
+	public void live(Characs enemy) {
+
+	}
 }

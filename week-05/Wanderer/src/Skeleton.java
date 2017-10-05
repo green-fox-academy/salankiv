@@ -5,12 +5,12 @@ public class Skeleton extends Characs {
 		this.posX = position[0];
 		this.posY = position[1];
 		this.level = 1;
-		this.maxHP = 10;
-		this.currentHP = 10;
+		this.maxHP = 4;
+		this.currentHP = 4;
 		this.defendP = 8;
 		this.strikeP = 6;
 		this.typeInfo = "Type: skeleton";
-		this.hudInfo = typeInfo + " (Level: " + this.level + ".) HP: " + this.currentHP + "/" + this.maxHP;
+		this.hudInfo = String.valueOf(currentHP);
 	}
 
 }
