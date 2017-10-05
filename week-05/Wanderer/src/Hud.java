@@ -18,7 +18,8 @@ public class Hud {
 		graphics.setColor(Color.BLACK);
 		Font myFont = new Font("Arial", 3, 24);
 		graphics.setFont(myFont);
-		graphics.drawString(characs.hudInfo, 10, pos);
+		String hudInfo = "Type: " + "HP: " + characs.maxHP + "/" + characs.currentHP;
+		graphics.drawString(hudInfo, 10, pos);
 	}
 
 }

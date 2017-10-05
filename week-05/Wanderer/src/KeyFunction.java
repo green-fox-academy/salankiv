@@ -37,7 +37,6 @@ public class KeyFunction {
 	public Characs checkEnemy() {
 		for (int i = 1; i < characsList.size(); i++) {
 			if (characsList.get(i).posX == theHero.posX && characsList.get(i).posY == theHero.posY) {
-				System.out.println(characsList.get(i).typeInfo);
 				return characsList.get(i);
 			}
 		}

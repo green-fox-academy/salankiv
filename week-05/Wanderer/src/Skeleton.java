@@ -9,8 +9,6 @@ public class Skeleton extends Characs {
 		this.currentHP = 4;
 		this.defendP = 8;
 		this.strikeP = 6;
-		this.typeInfo = "Type: skeleton";
-		this.hudInfo = String.valueOf(currentHP);
 	}
 
 }
