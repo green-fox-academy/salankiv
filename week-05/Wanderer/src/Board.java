@@ -11,7 +11,7 @@ public class Board extends JComponent implements KeyListener {
 	ArrayList<Floor> floorList;
 	ArrayList<Wall> wallList;
 	KeyFunction keyFunction;
-	ArrayList<Hud> hudList;
+	Hud theHud;
 
 	public Board() {
 		setPreferredSize(new Dimension(720, 800));
@@ -20,7 +20,7 @@ public class Board extends JComponent implements KeyListener {
 		boardMap = new BoardMap();
 		floorList = new ArrayList<>();
 		wallList = new ArrayList<>();
-		hudList = new ArrayList<>();
+		theHud = new Hud();
 	}
 
 	public void fillList(){
@@ -40,23 +40,15 @@ public class Board extends JComponent implements KeyListener {
 	public void createCharacs(int numberOfSkeletons) {
 		Hero theHero = new Hero();
 		characsList.add(theHero);
-		createHuds(theHero);
 		keyFunction = new KeyFunction(theHero, boardMap);
 		for (int i = 0; i < numberOfSkeletons; i++) {
 			Skeleton skeleton = new Skeleton(boardMap.getNotWallCoords());
 			characsList.add(skeleton);
-			createHuds(skeleton);
 		}
 		Boss theBoss = new Boss(boardMap.getNotWallCoords());
 		characsList.add(theBoss);
-		createHuds(theBoss);
 	}
-
-	public void createHuds(Characs type) {
-		Hud tempHud = new Hud(type);
-		hudList.add(tempHud);
-	}
-
+	
 	@Override
 	public void paint(Graphics graphics) {
 		super.paint(graphics);
@@ -78,14 +70,8 @@ public class Board extends JComponent implements KeyListener {
 			characsList.get(i).draw(graphics);
 		}
 
-		graphics.setColor(Color.WHITE);
-		graphics.fillRect(0, 720, 720, 130);
-		graphics.setColor(Color.BLACK);
-		Font myFont = new Font("Arial", 3, 10);
-		graphics.setFont(myFont);
-		for (int i = 0; i < hudList.size(); i++) {
-			graphics.drawString(hudList.get(i).getHud(), 10,740 + i * 12);
-		}
+		theHud.drawHud(graphics);
+		theHud.getHudInfo(characsList.get(0), graphics);
 	}
 
 	public static void main(String[] args) {
