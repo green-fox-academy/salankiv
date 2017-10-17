@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Domino implements Comparable<Domino> {
+public class Domino implements Comparable<Domino>,  Printable {
 	private final int[] values;
 
 	public Domino(int valueA, int valueB) {
@@ -41,8 +40,13 @@ public class Domino implements Comparable<Domino> {
 
 		Collections.sort(dominoes);
 
-		for (Domino d : dominoes) {
-			System.out.println(d);
+		for(Domino d : dominoes) {
+			d.printAllFields();
 		}
+	}
+
+	@Override
+	public void printAllFields() {
+		System.out.println(this.toString());
 	}
 }
