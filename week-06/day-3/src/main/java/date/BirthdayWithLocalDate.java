@@ -9,26 +9,33 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
 
 	@Override
 	public LocalDate parseDate(String str) {
-		// TODO - return with the parsed date; format is: yyyy-MM-dd
+		return LocalDate.parse(str);
 	}
 
 	@Override
 	public String printMonthAndDay(LocalDate date) {
-		// TODO - return the date formatted: month & day (MM. dd.)
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM. dd.");
+		return date.format(formatter);
 	}
 
 	@Override
 	public boolean isAnniversaryToday(LocalDate date) {
-		// TODO - return with true if today is the same month+day as date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM. dd.");
+		return LocalDate.now().format(formatter).equals(date.format(formatter));
 	}
 
 	@Override
 	public int calculateAgeInYears(LocalDate birthday) {
-		// TODO - return how many years age the input date 'birthday' was
+		return LocalDate.now().getYear() - birthday.getYear();
 	}
 
 	@Override
 	public int calculateDaysToNextAnniversary(LocalDate date) {
+		if (date.equals(LocalDate.now())) {
+			return  0;
+		} else if (LocalDate.now().getDayOfYear() < date.getDayOfYear()) {
+			return date.getDayOfYear() - LocalDate.now().getDayOfYear();
+		} else return (365 - LocalDate.now().getDayOfYear()) + date.getDayOfYear();
 		// TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
 	}
 
