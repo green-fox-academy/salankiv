@@ -17,12 +17,49 @@ public class ParkingLot {
 			for (int j = 0; j < carTypes.length; j++) {
 				if (cars.get(i).type.equals(carTypes[j])) {
 					for (int k = 0; k < carColors.length; k++) {
-						if (cars.get(i).color.equals(carColors[k]));
-						carTypeAndColor[j][k]++;
+						if (cars.get(i).color.equals(carColors[k])) {
+							carTypeAndColor[j][k]++;
+						}
 					}
 				}
 			}
 		}
+
+		int sumCars = 0;
+		for (int i = 0; i < carTypes.length; i++) {
+			for (int j = 0; j < carColors.length; j++) {
+				sumCars += carTypeAndColor[i][j];
+			}
+			System.out.println(carTypes[i] + " = " + sumCars);
+			sumCars = 0;
+		}
+
+		System.out.println();
+
+		int sumColors = 0;
+		for (int i = 0; i < carColors.length; i++) {
+			for (int j = 0; j < carTypes.length; j++) {
+				sumColors += carTypeAndColor[j][i];
+			}
+			System.out.println(carColors[i] + " = " + sumColors);
+			sumColors = 0;
+		}
+
+		System.out.println();
+
+		int maxRow = 0;
+		int maxCol = 0;
+		int maxValue = 0;
+		for (int i = 0; i < carTypes.length; i++) {
+			for (int j = 0; j < carColors.length; j++) {
+				if (carTypeAndColor[i][j] > maxValue) {
+					maxValue = carTypeAndColor[i][j];
+					maxRow = i;
+					maxCol = j;
+				}
+			}
+		}
+		System.out.println(carTypes[maxRow] + " " + carColors[maxCol] + " = " + carTypeAndColor[maxRow][maxCol]);
 	}
 
 }
