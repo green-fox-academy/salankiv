@@ -26,4 +26,28 @@ public class ArgumentHandler implements Function{
 		}
 	}
 
+	@Override
+	public void greeting() {
+
+	}
+
+	@Override
+	public void listTasks() {
+
+	}
+
+	@Override
+	public void addTask() {
+
+	}
+
+	@Override
+	public void removeTask() {
+
+	}
+
+	@Override
+	public void completeTask() {
+
+	}
 }
