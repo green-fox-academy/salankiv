@@ -12,16 +12,39 @@ public class Task {
 	public Task(String name) {
 		this.name = name;
 		taskCounter++;
-		this.id = taskCounter;
-		this.createdDate = LocalDateTime.now();
-		this.completedDate = null;
+		id = taskCounter;
+		createdDate = LocalDateTime.now();
+		completedDate = LocalDateTime.now();
+	}
+
+	public Task(String name, int id, LocalDateTime createdDate, LocalDateTime completedDate) {
+		this.name = name;
+		this.id = id;
+		this.createdDate = createdDate;
+		this.completedDate = completedDate;
 	}
 
 	public void setCompleted() {
-		this.completedDate = LocalDateTime.now();
+		completedDate = LocalDateTime.now();
 	}
 
 	public int completionTime() {
-		return LocalDate.now().getDayOfYear() - this.completedDate.getDayOfYear();
+		return LocalDate.now().getDayOfYear() - completedDate.getDayOfYear();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public LocalDateTime getCompletedDate() {
+		return completedDate;
 	}
 }
