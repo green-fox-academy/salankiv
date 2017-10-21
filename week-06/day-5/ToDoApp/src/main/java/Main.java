@@ -1,20 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
 
+		List<Task> taskList = new ArrayList<>();
+		taskList = FileManupilation.loadAll();
 		ArgumentHandler.checkArguments(args);
 
-		Task newTask = new Task("whatever task");
-		Task newTask2 = new Task("whatever task 2");
-
-		System.out.println(newTask.id);
-		System.out.println(newTask2.id);
-
-		newTask.setCompleted();
-		System.out.println(newTask.createdDate);
-		System.out.println(newTask.completedDate);
-		System.out.println(newTask.completionTime());
-
+		for (Task t : taskList) {
+			System.out.println(t.name);
+		}
 
 	}
 }
