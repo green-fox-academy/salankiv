@@ -11,13 +11,33 @@ public class ArgumentHandler {
 			parser.accepts("l");
 			parser.accepts("a").withRequiredArg();
 			parser.accepts("r").withRequiredArg();
-			parser.accepts("c");
+			parser.accepts("c").withRequiredArg();
 			parser.accepts("u");
 			OptionSet options = parser.parse(args);
 
 			if (!options.hasOptions()) {
-				System.out.println
-						("\n" +
+				greeting();
+			}
+			if (options.has("l")) {
+				listTasks();
+			}
+			if (options.has("a")) {
+				addTask((String) options.valueOf("a"), taskList);
+			}
+			if (options.has("r")) {
+				removeTask((String) options.valueOf("r"));
+			}
+			if (options.has("c")) {
+				completeTask((String) options.valueOf("c"));
+			}
+			if (options.has("u")) {
+
+			}
+		}
+
+	public static void greeting() {
+		System.out.println
+				("\n" +
 						"Command Line Todo application\n" +
 						"=============================\n" +
 						"\n" +
@@ -27,41 +47,26 @@ public class ArgumentHandler {
 						"-r   Removes a task\n" +
 						"-c   Completes a task\n" +
 						"-u   Updates a task\n");
-			}
-			if (options.has("l")) {
-				System.out.println("list");
-			}
-			if (options.has("a")) {
-				addTask((String) options.valueOf("a"), taskList);
-			}
-			if (options.has("r")) {
-				removeTask((String) options.valueOf("r"));
-			}
-			if (options.has("c")) {
-
-			}
-			if (options.has("u")) {
-
-			}
-		}
-
-	public void greeting() {
-
 	}
 
-	public void listTasks() {
-
+	public static void listTasks() {
+		List<String[]> lines = FileManupilation.readFile();
+		for (String[] s : lines) {
+			System.out.println(s[0]);
+		}
 	}
 
 	public static void addTask(String taskName, List<Task> taskList) {
 		Task newTask = new Task(taskName);
 		taskList.add(newTask);
+		FileManupilation.save(newTask);
 	}
 
 	public static void removeTask(String taskName) {
+
 	}
 
-	public void completeTask() {
-
+	public static void completeTask(String id) {
+		FileManupilation.load(id);
 	}
 }

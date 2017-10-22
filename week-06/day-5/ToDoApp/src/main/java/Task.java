@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Task {
-	private static int taskCounter;
+	private static int taskCounter = FileManupilation.loadTaskCounter();
 
 	public String name;
 	public int id;
@@ -12,9 +12,10 @@ public class Task {
 	public Task(String name) {
 		this.name = name;
 		taskCounter++;
+		FileManupilation.writeTaskCounter();
 		id = taskCounter;
 		createdDate = LocalDateTime.now();
-		completedDate = LocalDateTime.now();
+		completedDate = createdDate;
 	}
 
 	public Task(String name, int id, LocalDateTime createdDate, LocalDateTime completedDate) {
@@ -46,5 +47,9 @@ public class Task {
 
 	public LocalDateTime getCompletedDate() {
 		return completedDate;
+	}
+
+	public static int getTaskCounter() {
+		return taskCounter;
 	}
 }
