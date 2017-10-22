@@ -48,8 +48,16 @@ public class FileManupilation {
 		writeFile(taskDetails);
 	}
 
-	public static void savaAll(List<Task> taskList) {
-
+	public static void saveAll(List<String[]> taskList) {
+		try {
+			CSVWriter writer = new CSVWriter(new FileWriter("../../src/asset/tasklist.csv"));
+			writer.writeAll(taskList);
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void load(String taskId) {

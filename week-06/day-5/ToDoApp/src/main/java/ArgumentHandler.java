@@ -1,6 +1,7 @@
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArgumentHandler {
@@ -63,7 +64,14 @@ public class ArgumentHandler {
 	}
 
 	public static void removeTask(String taskName) {
-
+		List<String[]> lines = FileManupilation.readFile();
+		List<String[]> newLines = new ArrayList<>();
+		for (String[] l : lines) {
+			if (!l[0].equals(taskName)) {
+				newLines.add(l);
+				}
+			}
+		FileManupilation.saveAll(newLines);
 	}
 
 	public static void completeTask(String id) {
