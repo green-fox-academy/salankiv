@@ -75,7 +75,10 @@ public class ArgumentHandler {
 	}
 
 	public static void completeTask(String id) {
-		FileManupilation.load(id);
+		Task task = FileManupilation.load(id);
+		task.setCompleted();
+		removeTask(task.name);
+		FileManupilation.save(task);
 	}
 
 	public static void updateTask(List<?> args) {

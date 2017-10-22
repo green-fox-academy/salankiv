@@ -60,19 +60,19 @@ public class FileManupilation {
 		}
 	}
 
-	public static void load(String taskId) {
-		for (String[] s :readFile()) {
+	public static Task load(String taskId) {
+		Task task = null;
+		for (String[] s : readFile()) {
 			if (s[1].equals(taskId)) {
-				for (int i = 0; i < s.length; i++) {
-					System.out.println(s[i]);
-				}
+				String name = s[0];
+				int id = Integer.valueOf(s[1]);
+				LocalDateTime createdDate = LocalDateTime.parse(s[2]);
+				LocalDateTime completedDate = LocalDateTime.parse(s[3]);
+				task = new Task(name, id, createdDate, completedDate);
 			}
 		}
+		return task;
 	}
-
-//	public static void load(String taskName) {
-//
-//	}
 
 	public static List<Task> loadAll() {
 		List<Task> taskList = new ArrayList<>();
