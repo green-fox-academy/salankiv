@@ -27,10 +27,10 @@ public class FileManupilation {
 		return lines;
 	}
 
-	public static void writeFile(String[] lines) {
+	public static void save(Task task) {
 		try {
 			CSVWriter writer = new CSVWriter(new FileWriter("../../src/asset/tasklist.csv", true));
-			writer.writeNext(lines);
+			writer.writeNext(task.getTaskDetails());
 			writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -39,24 +39,17 @@ public class FileManupilation {
 		}
 	}
 
-	public static void save(Task task) {
-		String[] taskDetails = new String[4];
-		taskDetails[0] = task.name;
-		taskDetails[1] = String.valueOf(task.id);
-		taskDetails[2] = String.valueOf(task.createdDate);
-		taskDetails[3] = String.valueOf(task.completedDate);
-		writeFile(taskDetails);
-	}
-
-	public static void saveAll(List<String[]> taskList) {
+	public static void saveAll(List<Task> taskList) {
 		try {
 			CSVWriter writer = new CSVWriter(new FileWriter("../../src/asset/tasklist.csv"));
-			writer.writeAll(taskList);
 			writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		for (Task t : taskList) {
+			save(t);
 		}
 	}
 
@@ -76,8 +69,7 @@ public class FileManupilation {
 
 	public static List<Task> loadAll() {
 		List<Task> taskList = new ArrayList<>();
-		List<String[]> lines = new ArrayList<>();
-		lines =	FileManupilation.readFile();
+		List<String[]> lines = FileManupilation.readFile();
 		if (lines.size() > 0) {
 			for (int i = 0; i < lines.size(); i++) {
 				String name = lines.get(i)[0];

@@ -20,19 +20,19 @@ public class ArgumentHandler {
 			greeting();
 		}
 		if (options.has("l")) {
-			listTasks();
+			listTasks(taskList);
 		}
 		if (options.has("a")) {
 			addTask((String) options.valueOf("a"), taskList);
 		}
 		if (options.has("r")) {
-			removeTask((String) options.valueOf("r"));
+			removeTask((String) options.valueOf("r"), taskList);
 		}
 		if (options.has("c")) {
-			completeTask((String) options.valueOf("c"));
+			completeTask((String) options.valueOf("c"), taskList);
 		}
 		if (options.has("u")) {
-			updateTask((List<?>) options.valuesOf("u"));
+			updateTask((List<?>) options.valuesOf("u"), taskList);
 		}
 	}
 
@@ -50,10 +50,9 @@ public class ArgumentHandler {
 						"-u   Updates a task\n");
 	}
 
-	public static void listTasks() {
-		List<String[]> lines = FileManupilation.readFile();
-		for (String[] s : lines) {
-			System.out.println(s[0]);
+	public static void listTasks(List<Task> taskList) {
+		for (Task t : taskList) {
+			System.out.println(t.getName());
 		}
 	}
 
@@ -63,35 +62,33 @@ public class ArgumentHandler {
 		FileManupilation.save(newTask);
 	}
 
-	public static void removeTask(String taskName) {
-		List<String[]> lines = FileManupilation.readFile();
-		List<String[]> newLines = new ArrayList<>();
-		for (String[] l : lines) {
-			if (!l[0].equals(taskName)) {
-				newLines.add(l);
+	public static void removeTask(String taskName, List<Task> taskList) {
+		List<Task> newLines = new ArrayList<>();
+		for (Task t : taskList) {
+			if (!t.getName().equals(taskName)) {
+				newLines.add(t);
 			}
 		}
 		FileManupilation.saveAll(newLines);
 	}
 
-	public static void completeTask(String id) {
+	public static void completeTask(String id, List<Task> taskList) {
 		Task task = FileManupilation.load(id);
 		task.setCompleted();
-		removeTask(task.name);
+		removeTask(task.getName(), taskList);
 		FileManupilation.save(task);
 	}
 
-	public static void updateTask(List<?> args) {
-		List<String[]> lines = FileManupilation.readFile();
-		List<String[]> newLines = new ArrayList<>();
-		for (int i = 0; i < lines.size(); i++) {
-			if (!lines.get(i)[1].equals(args.get(0))) {
-				newLines.add(lines.get(i));
+	public static void updateTask(List<?> args, List<Task> taskList) {
+		List<Task> newTaskList = new ArrayList<>();
+		for (int i = 0; i < taskList.size(); i++) {
+			if (!String.valueOf(taskList.get(i).getId()).equals(args.get(0))) {
+				newTaskList.add(taskList.get(i));
 			} else {
-				lines.get(i)[0] = args.get(1).toString();
-				newLines.add(lines.get(i));
+				taskList.get(i).setName(args.get(1).toString());
+				newTaskList.add(taskList.get(i));
 			}
 		}
-		FileManupilation.saveAll(newLines);
+		FileManupilation.saveAll(newTaskList);
 	}
 }
