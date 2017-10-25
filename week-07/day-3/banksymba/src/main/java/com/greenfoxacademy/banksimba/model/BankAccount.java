@@ -2,7 +2,7 @@ package com.greenfoxacademy.banksimba.model;
 
 public class BankAccount {
 	String name;
-	int balance;
+	double balance;
 	String animalType;
 
 	public BankAccount(String name, int balance, String animalType) {
@@ -15,7 +15,7 @@ public class BankAccount {
 		return name;
 	}
 
-	public int getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
