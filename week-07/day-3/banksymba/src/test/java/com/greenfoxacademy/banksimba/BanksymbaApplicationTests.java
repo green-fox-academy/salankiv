@@ -1,4 +1,4 @@
-package com.greenfoxacademy.banksymba;
+package com.greenfoxacademy.banksimba;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

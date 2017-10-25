@@ -1,12 +1,12 @@
-package com.greenfoxacademy.banksymba;
+package com.greenfoxacademy.banksimba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BanksymbaApplication {
+public class BankSimbaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BanksymbaApplication.class, args);
+		SpringApplication.run(BankSimbaApplication.class, args);
 	}
 }
