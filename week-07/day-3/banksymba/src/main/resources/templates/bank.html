@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<table>
+<table width="100%" cellspacing="2" cellpadding="0" border="5" align="center" border-color="#ff6600">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -21,10 +21,7 @@
         <td th:text="${account.getBalance()}"></td>
         <td th:text="${account.getAnimalType()}"></td>
         <td th:text="${account.isKing()}"></td>
-        <td th:switch="${account.isGoodGuy()}">
-            <span th:case="true" th:text="'Good Guy'"></span>
-            <span th:case="false" th:text="'Bad Guy'"></span>
-        </td>
+        <td th:text="${account.getAttitude()}"></td>
     </tr>
 </table>
 </body>
