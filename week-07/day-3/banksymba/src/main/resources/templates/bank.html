@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
@@ -24,5 +24,10 @@
         <td th:text="${account.getAttitude()}"></td>
     </tr>
 </table>
+<form th:method="POST" th:action="${action}">
+    <div>
+        <button type="submit" class="btn btn-default">New Account</button>
+    </div>
+</form>
 </body>
 </html>
