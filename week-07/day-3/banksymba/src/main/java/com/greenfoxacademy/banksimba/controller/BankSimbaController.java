@@ -15,4 +15,11 @@ public class BankSimbaController {
 		model.addAttribute("account", account);
 		return "exercise1";
 	}
+
+	@RequestMapping(value = "/htmlception")
+	public String htmlception(Model model) {
+		String stringToCheck = "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>";
+		model.addAttribute("string", stringToCheck);
+		return "htmlception";
+	}
 }
