@@ -13,6 +13,7 @@
         <th>Balance</th>
         <th>Animal Type</th>
         <th>King</th>
+        <th>Attitude</th>
     </tr>
     <tr th:each="account: ${list}" th:style="${account.isKing()} ? 'color:red'" >
         <td th:text="${accountStat.index + 1}"></td>
@@ -20,6 +21,10 @@
         <td th:text="${account.getBalance()}"></td>
         <td th:text="${account.getAnimalType()}"></td>
         <td th:text="${account.isKing()}"></td>
+        <td th:switch="${account.isGoodGuy()}">
+            <span th:case="true" th:text="'Good Guy'"></span>
+            <span th:case="false" th:text="'Bad Guy'"></span>
+        </td>
     </tr>
 </table>
 </body>

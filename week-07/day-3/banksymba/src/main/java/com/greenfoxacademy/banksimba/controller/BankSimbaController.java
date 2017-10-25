@@ -14,7 +14,7 @@ public class BankSimbaController {
 
 	@RequestMapping(value = "/exercise1")
 	public String createAccount(Model model) {
-		BankAccount account = new BankAccount("Simba", 2000, "lion", true);
+		BankAccount account = new BankAccount("Simba", 2000, "lion", true, true);
 		model.addAttribute("account", account);
 		return "exercise1";
 	}
@@ -29,11 +29,11 @@ public class BankSimbaController {
 	@RequestMapping(value = "/bank")
 	public String bank(Model model) {
 		List<BankAccount> bank = new ArrayList<>();
-		bank.add(new BankAccount("Simba", 2000, "lion", true));
-		bank.add(new BankAccount("Zordon", 3000, "lion", false));
-		bank.add(new BankAccount("Rafiki", 5000, "monkey", false));
-		bank.add(new BankAccount("Zazu", 1000, "bird", false));
-		bank.add(new BankAccount("Timon", 3500, "other", false));
+		bank.add(new BankAccount("Simba", 2000, "lion", true, true));
+		bank.add(new BankAccount("Zordon", 3000, "lion", false, false));
+		bank.add(new BankAccount("Rafiki", 5000, "monkey", false, true));
+		bank.add(new BankAccount("Zazu", 1000, "bird", false, true));
+		bank.add(new BankAccount("Timon", 3500, "other", false, true));
 		model.addAttribute("list", bank);
 		return "bank";
 	}
