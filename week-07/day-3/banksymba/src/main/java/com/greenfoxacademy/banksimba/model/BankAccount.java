@@ -15,6 +15,10 @@ public class BankAccount {
 		this.attitude = attitude;
 	}
 
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
 	public String getName() {
 		return name;
 	}
