@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Fox Club</title>
 </head>
 <body>
 <ul>
-    <li><a href="#" target="_blank">Information</a></li>
+    <li><a href="#">Information</a></li>
+    <li><a href="/nutritionStore">Neutrition Store</a></li>
 </ul>
 <img src="greenfox.png"/>
-<p>This is Mr. Fox. Currently living on pizza and lemonade. He knows 0 tricks</p>
-<h1>Known tricks</h1>
-<ul>
-    <li>write HTML</li>
-    <li>code in Java</li>
+<p th:object="${fox}" th:text="'This is ' + *{getName()} + '. Currently living on ' + *{getFood()} + ' and ' + *{getDrink()} + '. He knows ' + *{getKnownTricks()} + ' tricks.'"></p>
+<h1 th:object="${fox}" th:text="*{getKnownTricks()} == 0 ? 'You know no tricks, yet. Go and learn some.' : 'Known tricks'"></h1>
+<ul th:each="trick: ${fox.getTricks()}">
+    <li th:text="${trick}"></li>
 </ul>
 </body>
 </html>
