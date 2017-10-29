@@ -1,7 +1,5 @@
 package com.greenfox.foxclub;
 
-import org.thymeleaf.spring4.expression.Fields;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,16 +36,25 @@ public class Fox {
 	}
 
 	public int getKnownTricks() {
+		return this.tricks.size();
+	}
 
-		return knownTricks;
+	public void learnTrick(Trick trick) {
+		boolean isKnown = false;
+		for (Trick t : this.tricks) {
+			if (t.getName().equals(trick.getName())) {
+				isKnown = true;
+			}
+		}
+		if (!isKnown) {
+			this.tricks.add(trick);
+		}
 	}
 
 	public Fox() {
 		this.name = "Mr. Viktor";
 		this.food = Food.SALAD;
 		this.drink = Drink.WATER;
-		this.tricks = new ArrayList<>();
-		this.knownTricks = this.tricks.size();
-
+		this.tricks = new ArrayList<Trick>();
 	}
 }

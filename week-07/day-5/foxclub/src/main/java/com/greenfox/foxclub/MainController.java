@@ -27,6 +27,19 @@ public class MainController {
 		return "store";
 	}
 
+	@RequestMapping(value = "/trickCenter")
+	public String loadTrickCenter(Model model) {
+		model.addAttribute("fox", fox);
+		model.addAttribute("tricks", Trick.names);
+		return "trickcenter";
+	}
+
+	@PostMapping(value = "/learn")
+	public String learn(@ModelAttribute Fox fox, @ModelAttribute Trick trick) {
+		this.fox.learnTrick(trick);
+		return "redirect:/trickCenter";
+	}
+
 	@PostMapping(value = "/change")
 	public String change(@ModelAttribute Fox fox, @ModelAttribute Food food, @ModelAttribute Drink drink) {
 		this.fox.setEating(food);

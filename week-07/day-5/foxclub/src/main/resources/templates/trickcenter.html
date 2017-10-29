@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Fox Club</title>
+</head>
+<body>
+<ul>
+    <li><a href="/">Information</a></li>
+    <li><a href="/neutritionStore">Neutrition Store</a></li>
+    <li><a href="#">Trick Center</a></li>
+</ul>
+<form th:action="@{/learn}" th:object="${fox}" th:method="post">
+    <span>Tricks</span>
+    <select name="trick">
+        <option th:object="${tricks}" th:each="trick: ${tricks}" th:text="${trick}">Trick</option>
+    </select>
+    <p><input type="submit" value="Learn"/></p>
+</form>
+</body>
+</html>

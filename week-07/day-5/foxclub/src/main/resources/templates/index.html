@@ -8,12 +8,13 @@
 <ul>
     <li><a href="#">Information</a></li>
     <li><a href="/nutritionStore">Neutrition Store</a></li>
+    <li><a href="/trickCenter">Trick Center</a></li>
 </ul>
 <img src="greenfox.png"/>
 <p th:object="${fox}" th:text="'This is ' + *{getName()} + '. Currently living on ' + *{getEating()} + ' and ' + *{getDrinking()} + '. He knows ' + *{getKnownTricks()} + ' tricks.'"></p>
 <h1 th:object="${fox}" th:text="*{getKnownTricks()} == 0 ? 'You know no tricks, yet. Go and learn some.' : 'Known tricks'"></h1>
 <ul th:each="trick: ${fox.getTricks()}">
-    <li th:text="${trick}"></li>
+    <li th:text="${trick.getName()}"></li>
 </ul>
 </body>
 </html>
