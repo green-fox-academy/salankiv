@@ -9,5 +9,18 @@
     <li><a href="/">Information</a></li>
     <li><a href="#">Neutrition Store</a></li>
 </ul>
+<form th:action="@{/change}" th:object="${fox}" method="post">
+    <span>Food</span>
+    <select name="food" th:field="*{food}">
+        <option value="meat">Meat</option>
+        <option value="salad">Salad</option>
+    </select>
+    <span>Drink</span>
+    <select name="drink" th:field="*{drink}">
+        <option value="water">Water</option>
+        <option value="coke">Coke</option>
+    </select>
+    <p><input type="submit" value="Change" /></p>
+</form>
 </body>
 </html>
