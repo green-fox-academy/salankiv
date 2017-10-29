@@ -9,18 +9,18 @@
     <li><a href="/">Information</a></li>
     <li><a href="#">Neutrition Store</a></li>
 </ul>
-<form th:action="@{/change}" th:object="${fox}" method="post">
+<form th:action="@{/change}" th:object="${fox}" th:method="post">
     <span>Food</span>
-    <select name="food" th:field="*{food}">
-        <option value="meat">Meat</option>
-        <option value="salad">Salad</option>
+    <p th:text="'Curent food is: ' + ${fox.getEating()}"></p>
+    <select name="food">
+        <option th:object="${foods}" th:each="food: ${foods}" th:text="${food.name()}">Food</option>
     </select>
-    <span>Drink</span>
-    <select name="drink" th:field="*{drink}">
-        <option value="water">Water</option>
-        <option value="coke">Coke</option>
+    <p>Drink</p>
+    <p th:text="'Current drink is: ' + ${fox.getDrinking()}"></p>
+    <select name="drink">
+        <option th:object="${drinks}" th:each="drink: ${drinks}" th:text="${drink.name()}">Drink</option>
     </select>
-    <p><input type="submit" value="Change" /></p>
+    <p><input type="submit" value="Change"/></p>
 </form>
 </body>
 </html>

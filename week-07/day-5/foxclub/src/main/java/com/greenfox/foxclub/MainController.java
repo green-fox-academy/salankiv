@@ -22,13 +22,15 @@ public class MainController {
 	@RequestMapping(value = "/nutritionStore")
 	public String loadStore(Model model) {
 		model.addAttribute("fox", fox);
+		model.addAttribute("foods", Food.values());
+		model.addAttribute("drinks", Drink.values());
 		return "store";
 	}
 
 	@PostMapping(value = "/change")
-	public String change(@ModelAttribute Fox fox) {
-		this.fox.setFood(fox.getFood());
-		this.fox.setDrink(fox.getDrink());
+	public String change(@ModelAttribute Fox fox, @ModelAttribute Food food, @ModelAttribute Drink drink) {
+		this.fox.setEating(food);
+		this.fox.setDrinking(drink);
 		return "redirect:/nutritionStore";
 	}
 }
