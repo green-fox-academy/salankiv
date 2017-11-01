@@ -5,8 +5,7 @@ import com.greenfox.todoappwithmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,5 +31,18 @@ public class TodoController {
 		}
 		model.addAttribute("todos", todos);
 		return "todoslist";
+	}
+
+	@GetMapping(value = "/create")
+	public String getNewTodo(Model model, String title) {
+		model.addAttribute("title", title);
+		return "create";
+	}
+
+	@PostMapping(value = "/create")
+	public String createTodo(@RequestParam String title) {
+		Todo newTodo = new Todo(title);
+		todoRepository.save(newTodo);
+		return "redirect:/todo/list";
 	}
 }
