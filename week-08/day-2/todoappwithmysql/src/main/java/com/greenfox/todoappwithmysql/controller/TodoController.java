@@ -21,11 +21,11 @@ public class TodoController {
 	public String list(Model model, @RequestParam(value = "isActive", required = false) boolean isActive) {
 		List<Todo> todos = new ArrayList<>();
 		for (Todo todo : todoRepository.findAll()) {
-			if (isActive == true) {
-				if (todo.isDone() == false) {
+			if (isActive) {
+				if (!todo.isDone()) {
 					todos.add(todo);
 				}
-			} else if (isActive == false) {
+			} else if (!isActive) {
 				todos.add(todo);
 			}
 		}
@@ -34,15 +34,13 @@ public class TodoController {
 	}
 
 	@GetMapping(value = "/create")
-	public String getNewTodo(Model model, String title) {
-		model.addAttribute("title", title);
+	public String loadCreate() {
 		return "create";
 	}
 
 	@PostMapping(value = "/create")
 	public String createTodo(@RequestParam String title) {
-		Todo newTodo = new Todo(title);
-		todoRepository.save(newTodo);
+		todoRepository.save(new Todo(title));
 		return "redirect:/todo/list";
 	}
 }
