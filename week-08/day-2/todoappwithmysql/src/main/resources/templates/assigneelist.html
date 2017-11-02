@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Assignee List</title>
+</head>
+<body>
+<ul style="list-style-type:none">
+    <li><a href="/todo/list">List of todos</a></li>
+</ul>
+<h2>Add new Assignee:</h2>
+<form action="/assignee/create/new" method="get">
+    <span>Name</span><input type="text" name="name"/>
+    <span>Email</span><input type="text" name="email"/>
+    <button type="submit" value="Submit">Submit</button>
+</form>
+<h2>List of Assignees:</h2>
+<table width="800" cellspacing="20" cellpadding="10" border="5" align="left" border-color="#ff6600">
+    <tr>
+        <th>ID</th>
+        <th>ACTION</th>
+        <th>EMAIL</th>
+        <th style="border: none"></th>
+        <th style="border: none"></th>
+    </tr>
+    <tr th:each="assignee : ${assignees}">
+        <td th:text="${assignee.id}"></td>
+        <td th:text="${assignee.name}"></td>
+        <td th:text="${assignee.email}"></td>
+        <td><a th:href="@{'/assignee/' + ${assignee.id} + '/delete'}">delete</a></td>
+        <td><a th:href="@{'/assignee/' + ${assignee.id} + '/edit'}">edit</a></td>
+    </tr>
+</table>
+</body>
+</html>

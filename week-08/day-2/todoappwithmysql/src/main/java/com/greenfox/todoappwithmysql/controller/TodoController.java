@@ -14,7 +14,7 @@ public class TodoController {
 	@Autowired
 	TodoRepository todoRepository;
 
-	@RequestMapping(value = {"/", "/list"})
+	@RequestMapping(value = {"", "/", "/list"})
 	public String list(Model model, @RequestParam(value = "isActive", required = false) String isActive, @RequestParam(value = "title", required = false) String title) {
 		if (title != null) {
 			model.addAttribute("todos", todoRepository.findByTitle(title));
