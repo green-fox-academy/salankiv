@@ -10,9 +10,9 @@
     <input type="hidden" th:field="${id}"/>
     <span>Todo description</span><input type="text" th:field="${todo.title}"/>
     <p></p>
-    <span>Urgent</span><input type="checkbox" th:checked="${todo.isUrgent()}" th:field="${todo.urgent}"/>
+    <span>Urgent</span><input type="checkbox" th:checked="${todo.urgent}" th:field="${todo.urgent}"/>
     <p></p>
-    <span>Done</span><input type="checkbox" th:checked="${todo.isDone()}" th:field="${todo.done}"/>
+    <span>Done</span><input type="checkbox" th:checked="${todo.done}" th:field="${todo.done}"/>
     <p></p>
     <button type="submit" value="Submit">Submit</button>
 </form>

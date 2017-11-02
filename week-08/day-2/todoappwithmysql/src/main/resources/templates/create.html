@@ -9,8 +9,8 @@
     <li><a href="/todo/list">List of todos</a></li>
 </ul>
 <h2>Add new todos:</h2>
-<form th:action="@{/todo/create}" method="post">
-    <input type="text" th:text="${title}" name="title"/>
+<form action="/todo/create/new" method="get">
+    <input type="text" name="title"/>
     <button type="submit" value="Submit">Submit</button>
 </form>
 </body>

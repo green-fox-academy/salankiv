@@ -21,8 +21,7 @@ public class Todo {
 		this.done = done;
 	}
 
-	public Todo(){
-
+	public Todo() {
 	}
 
 	public Todo(String title) {
