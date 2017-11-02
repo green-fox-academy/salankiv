@@ -12,8 +12,14 @@ public class Todo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	String title;
-	boolean isUrgent;
-	boolean isDone;
+	boolean urgent;
+	boolean done;
+
+	public Todo(String title, boolean urgent, boolean done) {
+		this.title = title;
+		this.urgent = urgent;
+		this.done = done;
+	}
 
 	public Todo(){
 
@@ -40,18 +46,18 @@ public class Todo {
 	}
 
 	public boolean isUrgent() {
-		return isUrgent;
+		return urgent;
 	}
 
 	public void setUrgent(boolean urgent) {
-		isUrgent = urgent;
+		this.urgent = urgent;
 	}
 
 	public boolean isDone() {
-		return isDone;
+		return done;
 	}
 
 	public void setDone(boolean done) {
-		isDone = done;
+		this.done = done;
 	}
 }
