@@ -1,9 +1,6 @@
 package com.greenfox.todoappwithmysql.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -58,5 +55,16 @@ public class Todo {
 
 	public void setDone(boolean done) {
 		this.done = done;
+	}
+
+	@OneToOne
+	public Assignee assignee;
+
+	public Assignee getAssignee() {
+		return assignee;
+	}
+
+	public void setAssignee(Assignee assignee) {
+		this.assignee = assignee;
 	}
 }

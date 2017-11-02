@@ -1,6 +1,8 @@
 package com.greenfox.todoappwithmysql.controller;
 
+import com.greenfox.todoappwithmysql.model.Assignee;
 import com.greenfox.todoappwithmysql.model.Todo;
+import com.greenfox.todoappwithmysql.repository.AssigneeRepository;
 import com.greenfox.todoappwithmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,9 @@ public class TodoController {
 
 	@Autowired
 	TodoRepository todoRepository;
+
+	@Autowired
+	AssigneeRepository assigneeRepository;
 
 	@RequestMapping(value = {"", "/", "/list"})
 	public String list(Model model, @RequestParam(value = "isActive", required = false) String isActive, @RequestParam(value = "title", required = false) String title) {
@@ -46,11 +51,12 @@ public class TodoController {
 	@GetMapping(value = "/{id}/edit")
 	public String loadTodo(@PathVariable Long id, Model model) {
 		model.addAttribute("todo", todoRepository.findOne(id));
+		model.addAttribute("assignees", assigneeRepository.findAll());
 		return "edit";
 	}
 
 	@PostMapping(value = "/{id}/edit")
-	public String editTodo(@PathVariable Long id, @ModelAttribute Todo todo) {
+	public String editTodo(@ModelAttribute(value = "id") Todo todo, @ModelAttribute(value = "id") Assignee assignee) {
 		todoRepository.save(todo);
 		return "redirect:/todo/list";
 	}

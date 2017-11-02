@@ -6,15 +6,20 @@
 </head>
 <body>
 <h2>Edit todo:</h2>
-<form action="#" th:object="${todo}" method="post">
-    <input type="hidden" th:field="${id}"/>
-    <span>Todo description</span><input type="text" th:field="${todo.title}"/>
+<form th:object="${todo}" action="" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <span>Todo description</span><input type="text" th:field="*{title}"/>
     <p></p>
-    <span>Urgent</span><input type="checkbox" th:checked="${todo.urgent}" th:field="${todo.urgent}"/>
+    <span>Urgent</span><input type="checkbox" th:value="*{urgent}" th:field="*{urgent}"/>
     <p></p>
-    <span>Done</span><input type="checkbox" th:checked="${todo.done}" th:field="${todo.done}"/>
+    <span>Done</span><input type="checkbox" th:value="*{done}" th:field="*{done}"/>
     <p></p>
-    <button type="submit" value="Submit">Submit</button>
+    <span>Assignee</span>
+    <select name="Assignee" th:object="${assignees}">
+        <option th:each="assignee: ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+    </select>
+    <p></p>
+    <button type="submit" value="Submit">Change</button>
 </form>
 </body>
 </html>
