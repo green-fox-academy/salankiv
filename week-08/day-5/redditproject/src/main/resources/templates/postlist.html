@@ -9,11 +9,12 @@
     <li><a href="/posts/add">Add new Post</a></li>
 </ul>
 <h2>Posts</h2>
-<table width="400">
+<table width="700">
     <tr align="center">
         <th>SCORE</th>
         <th>ACTION</th>
         <th>CONTENT</th>
+        <th>CREATED AT</th>
     </tr>
     <tr th:each="post : ${posts}">
         <td th:text="${post.score}"></td>
@@ -22,6 +23,7 @@
             <a th:href="@{'/posts/' + ${post.id} + '/increase'}">+</a>
         </td>
         <td th:text="${post.content}"></td>
+        <td th:text="${post.createdAt}"></td>
     </tr>
 </table>
 </body>

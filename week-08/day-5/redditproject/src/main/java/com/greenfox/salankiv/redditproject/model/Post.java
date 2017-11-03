@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 public class Post {
@@ -14,6 +15,7 @@ public class Post {
 
 	String content;
 	int score;
+	LocalDate createdAt = LocalDate.now();
 
 	public Post() {
 	}
@@ -40,5 +42,9 @@ public class Post {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public LocalDate getCreatedAt() {
+		return createdAt;
 	}
 }
