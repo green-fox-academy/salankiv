@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Reddit App</title>
+</head>
+<body>
+<ul style="list-style-type:none">
+    <li><a href="/posts/add">Add new Post</a></li>
+</ul>
+<h2>Posts</h2>
+<table width="800" cellspacing="20" cellpadding="10" border="5" align="left" border-color="#ff6600">
+    <tr>
+        <th>SCORE</th>
+        <th>ACTION</th>
+        <th>CONTENT</th>
+    </tr>
+    <!--<tr th:each="todo : ${todos}">-->
+        <!--<td th:text="${todo.getId()}"></td>-->
+        <!--<td th:text="${todo.getTitle()}"></td>-->
+        <!--<td th:text="${todo.isDone()}"></td>-->
+        <!--<td th:text="${todo.isUrgent()}"></td>-->
+        <!--<td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}">delete</a></td>-->
+        <!--<td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">edit</a></td>-->
+    <!--</tr>-->
+</table>
+</body>
+</html>

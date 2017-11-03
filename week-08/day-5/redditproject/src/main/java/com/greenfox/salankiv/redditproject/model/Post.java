@@ -13,6 +13,7 @@ public class Post {
 	Long id;
 
 	String content;
+	int score;
 
 	public Post(String content) {
 		this.content = content;
@@ -28,5 +29,13 @@ public class Post {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 }
