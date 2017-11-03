@@ -9,20 +9,20 @@
     <li><a href="/posts/add">Add new Post</a></li>
 </ul>
 <h2>Posts</h2>
-<table width="800" cellspacing="20" cellpadding="10" border="5" align="left" border-color="#ff6600">
-    <tr>
+<table width="400">
+    <tr align="center">
         <th>SCORE</th>
         <th>ACTION</th>
         <th>CONTENT</th>
     </tr>
-    <!--<tr th:each="todo : ${todos}">-->
-        <!--<td th:text="${todo.getId()}"></td>-->
-        <!--<td th:text="${todo.getTitle()}"></td>-->
-        <!--<td th:text="${todo.isDone()}"></td>-->
-        <!--<td th:text="${todo.isUrgent()}"></td>-->
-        <!--<td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}">delete</a></td>-->
-        <!--<td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">edit</a></td>-->
-    <!--</tr>-->
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.score}"></td>
+        <td>
+            <a th:href="@{'/posts/' + ${post.id} + '/decrease'}">-</a>
+            <a th:href="@{'/posts/' + ${post.id} + '/increase'}">+</a>
+        </td>
+        <td th:text="${post.content}"></td>
+    </tr>
 </table>
 </body>
 </html>
