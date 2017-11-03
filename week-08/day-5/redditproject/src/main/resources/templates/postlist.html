@@ -26,5 +26,13 @@
         <td th:text="${post.createdAt}"></td>
     </tr>
 </table>
+<table width="700">
+    <tr align="center">
+        <td>
+            <a th:href="@{/posts/(pageNumber=${pageNumber - 1})}">Previous</a>
+            <a th:href="@{/posts/(pageNumber=${pageNumber + 1})}">Next</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

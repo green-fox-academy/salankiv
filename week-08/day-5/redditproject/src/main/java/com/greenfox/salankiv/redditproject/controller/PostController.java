@@ -20,10 +20,14 @@ public class PostController {
 
 	@Autowired
 	PostManipulation postManipulation;
-
 	@GetMapping(value = {"", "/", "/list"})
-	public String listPosts(Model model) {
-		model.addAttribute("posts", postRepository.findAll());
+	public String listPosts(Model model, @RequestParam(value = "pageNumber", required = false) Integer pageNum) {
+		Integer pageNumber;
+		if (pageNum == null) {
+			pageNumber = 0;
+		} else pageNumber = pageNum;
+		model.addAttribute("posts", postRepository.findAllByIdBetween((Long.valueOf(pageNumber*10 + 1)), Long.valueOf((pageNumber + 1) * 10)));
+		model.addAttribute("pageNumber", pageNumber);
 		return "postlist";
 	}
 
