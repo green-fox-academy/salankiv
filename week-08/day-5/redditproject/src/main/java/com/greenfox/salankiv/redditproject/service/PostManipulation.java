@@ -3,6 +3,9 @@ package com.greenfox.salankiv.redditproject.service;
 import com.greenfox.salankiv.redditproject.model.Post;
 import com.greenfox.salankiv.redditproject.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -24,15 +27,12 @@ public class PostManipulation {
 		postRepository.save(post);
 	}
 
-	public void listPosts(Model model, String pageNum) {
-		Integer pageNumber;
-		if (pageNum == null) {
-			pageNumber = 0;
-		} else if (pageNum.equals("-1")) {
-			pageNumber = 0;
-		}	else pageNumber = Integer.valueOf(pageNum);
-		model.addAttribute("posts", postRepository.findAllByIdBetween((Long.valueOf(pageNumber*10 + 1)), Long.valueOf((pageNumber + 1) * 10)));
-		model.addAttribute("pageNumber", pageNumber);
+	public void listPosts(Model model, int page) {
+		if (page < 0) {
+			page = 0;
+		}
+		Pageable loadPage = new PageRequest(page, 10, Sort.Direction.DESC, "score");
+		model.addAttribute("posts", postRepository.findAll(loadPage));
 	}
 
 	public void savePost(String content) {

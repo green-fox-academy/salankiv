@@ -19,8 +19,8 @@
     <tr th:each="post : ${posts}">
         <td th:text="${post.score}"></td>
         <td>
-            <a th:href="@{'/posts/' + ${post.id} + '/decrease'}">-</a>
-            <a th:href="@{'/posts/' + ${post.id} + '/increase'}">+</a>
+            <a th:href="@{'/posts/' + ${post.id} + '/decrease/'(page = ${posts.getNumber()})}">-</a>
+            <a th:href="@{'/posts/' + ${post.id} + '/increase/'(page = ${posts.getNumber()})}">+</a>
         </td>
         <td th:text="${post.content}"></td>
         <td th:text="${post.createdAt}"></td>
@@ -29,8 +29,8 @@
 <table width="700">
     <tr align="center">
         <td>
-            <a th:href="@{/posts/(pageNumber=${pageNumber - 1})}">Previous</a>
-            <a th:href="@{/posts/(pageNumber=${pageNumber + 1})}">Next</a>
+            <a th:href="@{/posts/(page = ${posts.getNumber() - 1})}">Previous</a>
+            <a th:href="@{/posts/(page = ${posts.getNumber() + 1})}">Next</a>
         </td>
     </tr>
 </table>

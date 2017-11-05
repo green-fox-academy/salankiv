@@ -17,8 +17,8 @@ public class PostController {
 	PostManipulation postManipulation;
 
 	@GetMapping(value = {"", "/", "/list"})
-	public String listPosts(Model model, @RequestParam(value = "pageNumber", defaultValue = "1", required = false) String pageNum) {
-		postManipulation.listPosts(model, pageNum);
+	public String listPosts(Model model, @RequestParam(value = "page", defaultValue = "0", required = false) int page) {
+		postManipulation.listPosts(model, page);
 		return "postlist";
 	}
 
@@ -34,15 +34,15 @@ public class PostController {
 	}
 
 	@GetMapping(value = {"/{id}/increase"})
-	public String increaseScore(@PathVariable(value = "id") Long id) {
+	public String increaseScore(@PathVariable(value = "id") Long id, @RequestParam(value = "page") int page) {
 		postManipulation.increaseScore(id);
-		return "redirect:/posts/";
+		return "redirect:/posts/?page="+page;
 	}
 
 	@GetMapping(value = {"/{id}/decrease"})
-	public String decreaseScore(@PathVariable(value = "id") Long id) {
+	public String decreaseScore(@PathVariable(value = "id") Long id, @RequestParam(value = "page") int page) {
 		postManipulation.decreaseScore(id);
-		return "redirect:/posts/";
+		return "redirect:/posts/?page="+page;
 	}
 
 }
