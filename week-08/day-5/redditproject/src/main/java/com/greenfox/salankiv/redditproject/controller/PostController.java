@@ -1,7 +1,5 @@
 package com.greenfox.salankiv.redditproject.controller;
 
-import com.greenfox.salankiv.redditproject.model.Post;
-import com.greenfox.salankiv.redditproject.repository.PostRepository;
 import com.greenfox.salankiv.redditproject.service.PostManipulation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,18 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PostController {
 
 	@Autowired
-	PostRepository postRepository;
-
-	@Autowired
 	PostManipulation postManipulation;
+
 	@GetMapping(value = {"", "/", "/list"})
-	public String listPosts(Model model, @RequestParam(value = "pageNumber", required = false) Integer pageNum) {
-		Integer pageNumber;
-		if (pageNum == null) {
-			pageNumber = 0;
-		} else pageNumber = pageNum;
-		model.addAttribute("posts", postRepository.findAllByIdBetween((Long.valueOf(pageNumber*10 + 1)), Long.valueOf((pageNumber + 1) * 10)));
-		model.addAttribute("pageNumber", pageNumber);
+	public String listPosts(Model model, @RequestParam(value = "pageNumber", defaultValue = "1", required = false) String pageNum) {
+		postManipulation.listPosts(model, pageNum);
 		return "postlist";
 	}
 
@@ -38,23 +29,19 @@ public class PostController {
 
 	@GetMapping(value = {"/add/save"})
 	public String savePost(@RequestParam String content) {
-		postRepository.save(new Post(content));
+		postManipulation.savePost(content);
 		return "addpost";
 	}
 
 	@GetMapping(value = {"/{id}/increase"})
-	public String increaseScore(@PathVariable(value = "id") Long id, PostManipulation postManipulation) {
-		Post post = postRepository.findOne(id);
-		postManipulation.increaseScore(post);
-		postRepository.save(post);
+	public String increaseScore(@PathVariable(value = "id") Long id) {
+		postManipulation.increaseScore(id);
 		return "redirect:/posts/";
 	}
 
 	@GetMapping(value = {"/{id}/decrease"})
-	public String decreaseScore(@PathVariable(value = "id") Long id, PostManipulation postManipulation) {
-		Post post = postRepository.findOne(id);
-		postManipulation.decreaseScore(post);
-		postRepository.save(post);
+	public String decreaseScore(@PathVariable(value = "id") Long id) {
+		postManipulation.decreaseScore(id);
 		return "redirect:/posts/";
 	}
 
