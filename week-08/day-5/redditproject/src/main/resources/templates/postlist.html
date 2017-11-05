@@ -3,36 +3,42 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Reddit App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
-<ul style="list-style-type:none">
-    <li><a href="/posts/add">Add new Post</a></li>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/posts/">Redit App</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/posts/add">Add new Post</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h2>Posts</h2>
+    <table class="table table-bordered">
+        <tr align="center">
+            <th>SCORE</th>
+            <th>ACTION</th>
+            <th>CONTENT</th>
+            <th>CREATED AT</th>
+        </tr>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.score}"></td>
+            <td>
+                <a type="button" class="btn btn-info" th:href="@{'/posts/' + ${post.id} + '/decrease/'(page = ${posts.getNumber()})}">-</a>
+                <a type="button" class="btn btn-info" th:href="@{'/posts/' + ${post.id} + '/increase/'(page = ${posts.getNumber()})}">+</a>
+            </td>
+            <td th:text="${post.content}"></td>
+            <td th:text="${post.createdAt}"></td>
+        </tr>
+    </table>
+<ul class="breadcrumb">
+    <li><a class="btn btn" th:href="@{/posts/(page = ${posts.getNumber() - 1})}">Previous</a></li>
+    <li><a class="btn btn" th:href="@{/posts/(page = ${posts.getNumber() + 1})}">Next</a></li>
 </ul>
-<h2>Posts</h2>
-<table width="700">
-    <tr align="center">
-        <th>SCORE</th>
-        <th>ACTION</th>
-        <th>CONTENT</th>
-        <th>CREATED AT</th>
-    </tr>
-    <tr th:each="post : ${posts}">
-        <td th:text="${post.score}"></td>
-        <td>
-            <a th:href="@{'/posts/' + ${post.id} + '/decrease/'(page = ${posts.getNumber()})}">-</a>
-            <a th:href="@{'/posts/' + ${post.id} + '/increase/'(page = ${posts.getNumber()})}">+</a>
-        </td>
-        <td th:text="${post.content}"></td>
-        <td th:text="${post.createdAt}"></td>
-    </tr>
-</table>
-<table width="700">
-    <tr align="center">
-        <td>
-            <a th:href="@{/posts/(page = ${posts.getNumber() - 1})}">Previous</a>
-            <a th:href="@{/posts/(page = ${posts.getNumber() + 1})}">Next</a>
-        </td>
-    </tr>
-</table>
+</div>
 </body>
 </html>
