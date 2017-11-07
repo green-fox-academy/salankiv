@@ -1,5 +1,7 @@
 package com.greenfox.salankiv.restcontroller.controller;
 
+import com.greenfox.salankiv.restcontroller.model.ErrorText;
+import com.greenfox.salankiv.restcontroller.model.Greeting;
 import com.greenfox.salankiv.restcontroller.model.Twice;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,10 +18,21 @@ public class RestController {
 	}
 
 	@ExceptionHandler(MissingServletRequestParameterException.class)
-	public ErrorText doubleParamError() {
+	public ErrorText displayError(MissingServletRequestParameterException errorMessage) {
 		ErrorText newError = new ErrorText();
-		newError.setError("Please provide an input!");
+		if (errorMessage.getParameterName().equals("input")) {
+			newError.setError("Please provide an input!");
+		} else if (errorMessage.getParameterName().equals("name")) {
+			newError.setError("Please provide a name!");
+		} else if (errorMessage.getParameterName().equals("title")) {
+			newError.setError("Please provide a title!");
+		}
 		return newError;
+	}
+
+	@GetMapping(value = "/greeter")
+	public Greeting greet(@RequestParam(value = "name") String name, @RequestParam(value = "title") String title) {
+		return new Greeting(name, title);
 	}
 
 }
