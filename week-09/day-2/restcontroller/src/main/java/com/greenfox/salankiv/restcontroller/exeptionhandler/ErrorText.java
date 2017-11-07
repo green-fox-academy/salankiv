@@ -1,4 +1,4 @@
-package com.greenfox.salankiv.restcontroller.model;
+package com.greenfox.salankiv.restcontroller.exeptionhandler;
 
 public class ErrorText {
 	String error;

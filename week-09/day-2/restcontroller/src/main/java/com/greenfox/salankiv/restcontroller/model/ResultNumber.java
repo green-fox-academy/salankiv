@@ -1,20 +1,23 @@
 package com.greenfox.salankiv.restcontroller.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ResultNumber {
-	int result;
+	ArrayList<Integer> result;
 
 	public ResultNumber() {
 	}
 
-	public ResultNumber(int result) {
+	public ResultNumber(ArrayList<Integer> result) {
 		this.result = result;
 	}
 
-	public int getResult() {
+	public ArrayList<Integer> getResult() {
 		return result;
 	}
 
-	public void setResult(int result) {
+	public void setResult(ArrayList<Integer> result) {
 		this.result = result;
 	}
 }
