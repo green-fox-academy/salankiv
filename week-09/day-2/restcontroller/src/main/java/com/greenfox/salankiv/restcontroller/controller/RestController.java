@@ -1,11 +1,13 @@
 package com.greenfox.salankiv.restcontroller.controller;
 
+import com.greenfox.salankiv.restcontroller.model.AppendA;
 import com.greenfox.salankiv.restcontroller.model.ErrorText;
 import com.greenfox.salankiv.restcontroller.model.Greeting;
 import com.greenfox.salankiv.restcontroller.model.Twice;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.web.bind.annotation.RestController
@@ -35,4 +37,8 @@ public class RestController {
 		return new Greeting(name, title);
 	}
 
+	@GetMapping(value = "/appenda/{appendable}")
+	public AppendA appendA(@PathVariable(value = "appendable") String whatToAppend) {
+		return new AppendA(whatToAppend);
+	}
 }
