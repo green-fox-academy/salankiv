@@ -1,14 +1,12 @@
 package com.greenfox.salankiv.restcontroller.controller;
 
-import com.greenfox.salankiv.restcontroller.model.AppendA;
-import com.greenfox.salankiv.restcontroller.model.ErrorText;
-import com.greenfox.salankiv.restcontroller.model.Greeting;
-import com.greenfox.salankiv.restcontroller.model.Twice;
+import com.greenfox.salankiv.restcontroller.model.*;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.MissingResourceException;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -40,5 +38,31 @@ public class RestController {
 	@GetMapping(value = "/appenda/{appendable}")
 	public AppendA appendA(@PathVariable(value = "appendable") String whatToAppend) {
 		return new AppendA(whatToAppend);
+	}
+
+	@PostMapping(value = "/dountil/{action}")
+	public ResultNumber sumDoUntil(@PathVariable(value = "action") String action, @RequestBody DoUntil doUntil) {
+		ResultNumber resultNumber = new ResultNumber();
+		if (action.equals("sum")) {
+			int temp = 0;
+			for (int i = 1; i <= doUntil.getUntil(); i++) {
+				temp += i;
+			}
+			resultNumber.setResult(temp);
+		} else if (action.equals("factor")) {
+			int temp = 1;
+			for (int i = 1; i <= doUntil.getUntil(); i++) {
+				temp *= i;
+			}
+			resultNumber.setResult(temp);
+		}
+		return resultNumber;
+	}
+
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ErrorText displayHttpError() {
+		ErrorText newError = new ErrorText();
+		newError.setError("Please provide a number!");
+		return newError;
 	}
 }
