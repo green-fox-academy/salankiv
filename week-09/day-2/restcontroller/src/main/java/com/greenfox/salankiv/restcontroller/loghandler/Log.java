@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Log {
@@ -13,12 +14,12 @@ public class Log {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
-	LocalDateTime createdAt;
+	String createdAt;
 	String endpoint;
 	String data;
 
 	public Log(String endpoint, String data) {
-		this.createdAt = LocalDateTime.now();
+		this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm"));
 		this.endpoint = endpoint;
 		this.data = data;
 	}
@@ -40,11 +41,11 @@ public class Log {
 		this.id = id;
 	}
 
-	public LocalDateTime getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
 

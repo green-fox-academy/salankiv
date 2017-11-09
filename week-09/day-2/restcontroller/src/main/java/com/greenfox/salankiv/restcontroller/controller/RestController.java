@@ -1,9 +1,6 @@
 package com.greenfox.salankiv.restcontroller.controller;
 
-import com.greenfox.salankiv.restcontroller.loghandler.Entry;
-import com.greenfox.salankiv.restcontroller.loghandler.History;
-import com.greenfox.salankiv.restcontroller.loghandler.Log;
-import com.greenfox.salankiv.restcontroller.loghandler.LogRepository;
+import com.greenfox.salankiv.restcontroller.loghandler.*;
 import com.greenfox.salankiv.restcontroller.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -63,8 +60,8 @@ public class RestController {
 
 	@GetMapping(value = "/log")
 	public History getLogHistory() {
-		List<Object> entries = new ArrayList<>();
-		for (Object e : logRepository.displayColumns()) {
+		List<Log> entries = new ArrayList<>();
+		for (Log e : logRepository.findAll()) {
 			entries.add(e);
 		}
 		return new History(entries);

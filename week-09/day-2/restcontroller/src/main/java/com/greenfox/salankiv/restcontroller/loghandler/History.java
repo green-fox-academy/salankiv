@@ -3,10 +3,10 @@ package com.greenfox.salankiv.restcontroller.loghandler;
 import java.util.List;
 
 public class History {
-	List<Object> entries;
+	List<Log> entries;
 	int entry_count;
 
-	public History(List<Object> entries) {
+	public History(List<Log> entries) {
 		this.entries = entries;
 		this.entry_count = entries.size();
 	}
@@ -22,11 +22,11 @@ public class History {
 		this.entry_count = entry_count;
 	}
 
-	public List<Object> getEntries() {
+	public List<Log> getEntries() {
 		return entries;
 	}
 
-	public void setEntries(List<Object> entries) {
+	public void setEntries(List<Log> entries) {
 		this.entries = entries;
 	}
 }
